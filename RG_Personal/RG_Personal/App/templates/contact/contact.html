@@ -1,0 +1,49 @@
+﻿<section id="contact" class="big-padding light-typo color-overlay">
+    <div class="container">
+        <h1 class="section-title">Contact Me</h1>
+        <div class="row">
+            <div class="col-sm-6 col-md-5 animated fadeInRight">
+                <p class="lead">
+                    I am available for freelance. 
+                    <br />
+                    Can't wait for the next exciting project! Could it be yours?
+                </p>
+                <p>
+                    Ray Goodwin<br />
+                    4715 Castle Hill Rd<br />
+                    Raleigh, NC (North Carolina) 27616<br />
+                    (919) 757 - 8383 <br />
+                </p>
+                <div class="social-links">
+                    <a href="https://github.com/rgoodwin16"><i class="fa fa-fw fa-github-square"></i></a>
+                    <a href="https://www.linkedin.com/pub/ray-goodwin/102/426/305"><i class="fa fa-fw fa-linkedin-square"></i></a>
+                </div>
+                <p><a class="mail-styled" href="mailto:rgoodwin16@outlook.com">rgoodwin16@outlook.com</a></p>
+            </div><!-- /left side -->
+            
+            <div id="contactForm" class="col-sm-6 col-md-offset-1 animated fadeInLeft">
+                <div class="form-group">
+                    <label class="control-label" for="contact-name">Name</label>
+                    <br /><br />
+                    <input id="contact-name" ng-model="contact.Name" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="contact-email">Email</label>
+                    <br /><br />
+                    <input id="contact-email" ng-model="contact.Email" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="contact-subject">Subject</label>
+                    <br /><br />
+                    <input id="contact-subject" ng-model="contact.Subject" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="contact-message">Message</label>
+                    <br /><br />
+                    <textarea id="contact-message" ng-model="contact.Message" class="form-control"></textarea>
+                </div>
+                <button class="btn btn-default" ng-click="contact.submit(contact.model)">Send It</button>
+            </div><!-- /right side -->
+        </div><!-- /row -->
+    </div><!-- /container -->
+</section>

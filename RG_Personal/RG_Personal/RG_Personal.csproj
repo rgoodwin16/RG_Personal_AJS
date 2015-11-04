@@ -258,6 +258,26 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App\app.js" />
+    <Content Include="App\controllers\about\aboutCtrl.js" />
+    <Content Include="App\controllers\blog\blogCtrl.js" />
+    <Content Include="App\controllers\contact\contactCtrl.js" />
+    <Content Include="App\controllers\home\homeCtrl.js" />
+    <Content Include="App\controllers\modal\modalCtrl.js" />
+    <Content Include="App\controllers\portfolio\portfolioCtrl.js" />
+    <Content Include="App\services\auth\authInterceptorSvc.js" />
+    <Content Include="App\services\auth\authSvc.js" />
+    <Content Include="App\templates\about\about.html" />
+    <Content Include="App\templates\blog\blog.admin.html" />
+    <Content Include="App\templates\blog\blog.details.html" />
+    <Content Include="App\templates\blog\blog.html" />
+    <Content Include="App\templates\contact\contact.html" />
+    <Content Include="App\templates\home\home.html" />
+    <Content Include="App\templates\login\login.html" />
+    <Content Include="App\templates\login\login.register.html" />
+    <Content Include="App\templates\login\login.signin.html" />
+    <Content Include="App\templates\modals\max.html" />
+    <Content Include="App\templates\portfolio\portfolio.html" />
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
@@ -309,6 +329,7 @@
     <Content Include="Scripts\angular-csp.css" />
     <Content Include="Scripts\angular-loader.js" />
     <Content Include="Scripts\angular-loader.min.js" />
+    <Content Include="Scripts\angular-local-storage.min.js" />
     <Content Include="Scripts\angular-message-format.js" />
     <Content Include="Scripts\angular-message-format.min.js" />
     <Content Include="Scripts\angular-messages.js" />
@@ -348,6 +369,7 @@
     <Content Include="fonts\fontawesome-webfont.ttf" />
     <Content Include="fonts\fontawesome-webfont.eot" />
     <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="App\templates\blog\blog.list.html" />
     <None Include="Scripts\jquery-2.1.4.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1108,6 +1130,42 @@
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Theme_Template\css\animate.css" />
+    <Content Include="Theme_Template\css\styles-1.css" />
+    <Content Include="Theme_Template\css\SyntaxHighlighter\shCore.css" />
+    <Content Include="Theme_Template\css\SyntaxHighlighter\shThemeDefault.css" />
+    <Content Include="Theme_Template\img\about.jpg" />
+    <Content Include="Theme_Template\img\bp_logo.png" />
+    <Content Include="Theme_Template\img\bt_logo.png" />
+    <Content Include="Theme_Template\img\cf_logo.png" />
+    <Content Include="Theme_Template\img\featured-iwoa.png" />
+    <Content Include="Theme_Template\img\featured_coder_2.png" />
+    <Content Include="Theme_Template\img\header-bg.png" />
+    <Content Include="Theme_Template\img\map_25.png" />
+    <Content Include="Theme_Template\img\nanye_3.png" />
+    <Content Include="Theme_Template\img\profile-pic.png" />
+    <Content Include="Theme_Template\img\project-viewer-bg.png" />
+    <Content Include="Theme_Template\img\projects\budgetplanner_splash.png" />
+    <Content Include="Theme_Template\img\projects\bugtracker_splash.png" />
+    <Content Include="Theme_Template\img\projects\calc.png" />
+    <Content Include="Theme_Template\img\projects\cf_splash.png" />
+    <Content Include="Theme_Template\img\projects\coffee.png" />
+    <Content Include="Theme_Template\img\projects\exchange.png" />
+    <Content Include="Theme_Template\img\projects\factorial.png" />
+    <Content Include="Theme_Template\img\projects\filter.png" />
+    <Content Include="Theme_Template\img\projects\rocket.png" />
+    <Content Include="Theme_Template\img\projects\search.png" />
+    <Content Include="Theme_Template\img\projects\smile.png" />
+    <Content Include="Theme_Template\img\projects\sort.png" />
+    <Content Include="Theme_Template\img\projects\text_height.png" />
+    <Content Include="Theme_Template\img\projects\trophy.png" />
+    <Content Include="Theme_Template\img\ray_goodwin.png" />
+    <Content Include="Theme_Template\img\ray_goodwin_grey.png" />
+    <Content Include="Theme_Template\img\rg_144.png" />
+    <Content Include="Theme_Template\img\rg_72.png" />
+    <Content Include="Theme_Template\img\rg_apple_touch.png" />
+    <Content Include="Theme_Template\img\rg_favicon.ico" />
+    <Content Include="Theme_Template\img\search.png" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1124,6 +1182,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Scripts\version.json" />
+    <Content Include="Theme_Template\Ray+Goodwin+Resume.pdf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

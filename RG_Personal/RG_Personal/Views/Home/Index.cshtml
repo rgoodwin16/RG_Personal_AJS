@@ -19,8 +19,9 @@
     <link href="~/Theme_Template/css/SyntaxHighlighter/shCore.css" rel="stylesheet" />
     <link href="~/Theme_Template/css/SyntaxHighlighter/shThemeDefault.css" rel="stylesheet" />
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <link href="~/Theme_Template/css/animate.css" rel="stylesheet" />
     <link href="~/Theme_Template/css/styles-1.css" rel="stylesheet" />
-    @Styles.Render("~Content/css")
+    @Styles.Render("~/Content/css")
 
     <!-- Begin Fonts -->
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700' rel='stylesheet' type='text/css'>
@@ -28,5 +29,125 @@
 </head>
 <body>
 
+    <div ng-app="rg_personal">
+
+        <div id="main-nav" class="navbar navbar-fixed-top scrolled">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle"
+                            ng-init="navCollapsed = true"
+                            ng-click="navCollapsed = !navCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!-- Begin Logo -->
+                    <a class="navbar-brand" ui-sref="home"><img src="~/Theme_Template/img/ray_goodwin.png" /></a>
+                </div>
+            </div><!-- /container -->
+        </div><!-- /main-nav -->
+
+        <nav id="header" class="header navbar navbar-fixed-top" role="navigation">
+            <!-- begin container-fluid -->
+            <div class="container-fluid">
+                <!-- begin mobile sidebar expand / collapse button -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle"
+                            ng-init="navCollapsed = true"
+                            ng-click="navCollapsed = !navCollapsed">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button><!-- end mobile sidebar expand / collapse button -->
+                </div>
+                <!-- begin header navigation right -->
+                <div id="site-nav" class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'" ng-click="navCollapsed=true">
+                    <ul class="nav navbar-nav navbar-right navbar-inverse">
+                        <li>
+                            <a ui-sref="home"><i class="fa fa-home"></i> Home</a>
+                        </li>
+                        <li>
+                            <a ui-sref="about"><i class="fa fa-graduation-cap"></i> About</a>
+                        </li>
+                        <li>
+                            <a ui-sref="blog"><i class="fa fa-comments"></i> Blog</a>
+                        </li>
+                        <li>
+                            <a ui-sref="portfolio"><i class="fa fa-code"></i> Portfolio</a>
+                        </li>
+                        <li>
+                            <a ui-sref="contact"><i class="fa fa-envelope"></i> Contact</a>
+                        </li>
+                    </ul>
+                </div><!-- end header navigation right -->
+            </div><!-- end container-fluid -->
+        </nav><!-- /header -->
+
+        <div id="main-content">
+
+            <div ui-view></div><!-- main ui-view -->
+            
+            <hr />
+
+            <footer id="main-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <a class="logo-link" ui-sref="home"><img src="~/Theme_Template/img/ray_goodwin_grey.png" /></a>
+                        </div>
+                        <div class="col-sm-8">
+                            <nav>
+                                <ul class="footer-nav">
+                                    <li><a class="" ui-sref="about">About</a></li>
+                                    <li><a class="" ui-sref="blog">Blog</a></li>
+                                    <li><a class="" ui-sref="portfolio">Portfolio</a></li>
+                                    <li><a class="" ui-sref="contact">Contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="https://github.com/rgoodwin16"><i class="fa fa-fw fa-github"></i></a>
+                            <a href="https://www.linkedin.com/pub/ray-goodwin/102/426/305"><i class="fa fa-fw fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div><!-- /container -->
+            </footer>
+        </div><!-- /main-content -->
+
+    </div><!-- /ng-app -->
+
+
+    <!-- Begin Angular -->
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-ui-router.min.js"></script>
+    <script src="~/Scripts/angular-local-storage.min.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap.min.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+
+    <!-- Main App -->
+    <script src="~/App/app.js"></script>
+
+    <!-- Begin Services -->
+
+    <!-- Auth -->
+    <script src="~/App/services/auth/authSvc.js"></script>
+    <script src="~/App/services/auth/authInterceptorSvc.js"></script>
+
+    <!-- Begin Controllers -->
+
+    <!-- Home -->
+    <script src="~/App/controllers/home/homeCtrl.js"></script>
+    <!-- About -->
+    <script src="~/App/controllers/about/aboutCtrl.js"></script>
+    <!-- Blog -->
+    <script src="~/App/controllers/blog/blogCtrl.js"></script>
+    <!-- Portfolio -->
+    <script src="~/App/controllers/portfolio/portfolioCtrl.js"></script>
+    <!-- Contact -->
+    <script src="~/App/controllers/contact/contactCtrl.js"></script>
+    <!-- Modals -->
+    <script src="~/App/controllers/modal/modalCtrl.js"></script>
 </body>
 </html>

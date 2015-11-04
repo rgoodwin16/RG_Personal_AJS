@@ -1,0 +1,35 @@
+﻿<section id="portfolio" class="big-padding">
+    <div class="container">
+        <h1 class="section-title">My Portfolio</h1>
+        <p class="subtitle">See an example of my code in action.</p>
+        
+        <div class="text-center animated fadeInUp">
+            <div class="btn-group">
+                <button class="btn btn-default" ng-click="portfolio.itemList ='all'">All Items</button>
+                <button class="btn btn-default" ng-click="portfolio.itemList ='javascript'">Javascript</button>
+                <button class="btn btn-default" ng-click="portfolio.itemList ='bugtracker'">Bug Tracker</button>
+                <button class="btn btn-default" ng-click="portfolio.itemList ='carfinder'">Car Finder</button>
+                <button class="btn btn-default" ng-click="portfolio.itemList ='budgetplanner'">Budget Planner</button>
+            </div>
+        </div>
+    </div><!-- /container -->
+
+    <div class="container ">
+        <a ng-repeat="item in portfolio.code track by $index" class="project-item col-sm-6 col-md-4 col-lg-3 animated fadeInUp" ng-show="portfolio.itemList == 'all' || portfolio.itemList == '{{item.Type}}'">
+            <img class="img-responsive project-image" src="{{item.ImgSrc}}" />
+            <div class="hover-title">
+                <h2 class="project-title">{{item.Title}}</h2>
+                <p>{{item.SubTitle}}</p>
+            </div>
+        </a><!-- /javascript items -->
+        
+        <a ng-repeat="item in portfolio.project track by $index" class="project-item col-sm-12 col-md-12 col-lg-12 animated fadeInUp" ng-show="portfolio.itemList == 'all' || portfolio.itemList == '{{item.Type}}'">
+            <img class="img-responsive project-image img-center" src="{{item.ImgSrc}}" />
+            <div class="hover-title">
+                <h2 class="project-title">{{item.Title}}</h2>
+                <p>{{item.SubTitle}}</p>
+            </div>
+        </a><!-- /web applications -->
+
+    </div><!-- /container -->
+</section>

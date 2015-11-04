@@ -333,7 +333,7 @@ hr{
 	height:100%;
 	min-height:860px;
 	margin-bottom:-64px;
-	background: url('../images/header-bg.png') no-repeat;
+	background: url('../img/header-bg.png') no-repeat;
 	background-attachment: fixed;
 	background-size: 100%;
 	background-size: cover;
@@ -542,7 +542,7 @@ hr{
 -----------------------*/
 
 #about{
-	background:url(../images/about.jpg) no-repeat;
+	background:url(../img/about.jpg) no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 }
@@ -1199,7 +1199,7 @@ hr{
 
 #contact{
 	position: relative;
-	background: url(../images/map_25.png) center center no-repeat;
+	background: url(../img/map_25.png) center center no-repeat;
     
 }
 
