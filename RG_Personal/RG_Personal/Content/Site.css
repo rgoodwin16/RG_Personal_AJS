@@ -17,7 +17,6 @@
 .tab-400{
     max-width:1140px;
 }
-.cp-dialog .modal-dialog {
-width :90%;
-min-width: 800px;
+._c {
+    cursor:pointer;
 }

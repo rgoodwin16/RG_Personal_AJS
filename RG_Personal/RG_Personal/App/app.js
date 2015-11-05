@@ -37,6 +37,101 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
 ////=================================================================================//
 
+    //PROJECT STATES
+    .state('projects', {
+        url: "/projects",
+        templateUrl: "/app/templates/projects/projects.html",
+        abstract: true,
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.max', {
+        url: "/max",
+        templateUrl: "/app/templates/projects/projects.max.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.factorial', {
+        url: "/factorial",
+        templateUrl: "/app/templates/projects/projects.factorial.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.perfect', {
+        url: "/perfect",
+        templateUrl: "/app/templates/projects/projects.perfect.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.happy', {
+        url: "/happy",
+        templateUrl: "/app/templates/projects/projects.happy.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.armstrong', {
+        url: "/armstrong",
+        templateUrl: "/app/templates/projects/projects.armstrong.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.palindrome', {
+        url: "/palindrome",
+        templateUrl: "/app/templates/projects/projects.palindrome.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.fizzbuzz', {
+        url: "/fizzbuzz",
+        templateUrl: "/app/templates/projects/projects.fizzbuzz.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.longest', {
+        url: "/projects/longest",
+        templateUrl: "/app/templates/projects/projects.longest.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.search', {
+        url: "/search",
+        templateUrl: "/app/templates/projects/projects.search.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.filter', {
+        url: "/filter",
+        templateUrl: "/app/templates/projects/projects.filter.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.frequency', {
+        url: "/frequency",
+        templateUrl: "/app/templates/projects/projects.frequency.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.bugtracker', {
+        url: "/bugtracker",
+        templateUrl: "/app/templates/projects/projects.bugtracker.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.carfinder', {
+        url: "/carfinder",
+        templateUrl: "/app/templates/projects/projects.carfinder.html",
+        controller: "projectsCtrl as project"
+    })
+
+    .state('projects.budgetplanner', {
+        url: "/budgetplanner",
+        templateUrl: "/app/templates/projects/projects.budgetplanner.html",
+        controller: "projectsCtrl as project"
+    })
+
+
+////=================================================================================//
+
     //LOGIN STATES
     .state('login', {
         url: "/login",

@@ -884,7 +884,7 @@ hr{
 -----------------------*/
 
 #project-viewer{
-	background: url('../images/header-bg.png') no-repeat;
+	background: url('../img/header-bg.png') no-repeat;
 	background-attachment: fixed;
 	background-size: 100%;
 	background-size: cover;
