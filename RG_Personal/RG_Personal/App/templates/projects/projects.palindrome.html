@@ -1,38 +1,43 @@
-﻿<div class="container">
-
-    <div class="row">
-
-        <div id="palindrome" class="col-xs-12 col-lg-6">
-            <h2>Palindromes</h2>
+﻿<div class="container" id="projects">
+    <h3 class="section-title animated fadeInDown">Palindromes</h3>
+    <div class="row" ng-controller="projects-palindromeCtrl as palindrome">
+        <div class="col-xs-8 animated fadeInLeft">
+            <p>What is a <a href="https://en.wikipedia.org/wiki/Palindrome" class="main-color">palindrome?</a></p>
+            <blockquote>
+                A palindrome is a word, phrase, number, or other sequence of characters which reads the same backward or forward. 
+            </blockquote>
             <p>This program is designed to see if what is given is a Palindrome.</p>
-            <p>Please enter some text.</p>
-            <input type="text" id="userText" class="form-control" /><br />
-            <input type="button" value="Is This a Palindrome?" onclick="palindrome()" class="btn btn-info" />
+            <input type="text" class="form-control" ng-model="palindrome.str" />
+            <br />
+            <button type="button" class="btn btn-default" ng-click="palindrome.calculate()">Calculate</button>
+        </div><!-- /left side -->
+        <div class="col-xs-4 animated fadeInRight project-results">
+            <h3>Results:</h3>
+            <h4>{{palindrome.result}}</h4>
+        </div><!-- /right side -->
+    </div><!-- /row -->
+    <div hljs class="animated fadeInUp">
+        'use strict';
+        angular.module('rg_personal').controller('projects-palindromeCtrl', function () {
+            var self = this;
+            this.result = '';
+            this.str = '';
+            this.rStr = '';
 
-            <div class="results">
-                <h4 id="resultPal"></h4>
-            </div>
-        </div><!-- end palindrome -->
-
-        <div class="col-xs-12 col-lg-6">
-
-            <pre class="brush: js">
-                //Palindromes
-                function palindrome() {
-                    var text = document.getElementById('userText').value;
-                    var inverse = text.split("").reverse().join("");
-                    if (inverse == text) {
-                        var palResult = text + " is a Palindrome.";
-                    } else {
-                        var palResult = text + " is NOT a Palindrome.";
+            this.calculate = function () {
+                if (self.str === "") {
+                    self.result = "Please enter a word or phrase.";
+                } else {
+                    self.rStr = self.str.split("").reverse().join("");
+                        if (self.str == self.rStr) {
+                            self.result = self.str + " is a Palindrome.";
+                        } else {
+                            self.result = self.str + " is NOT a Palindrome.";
+                        }
                     }
-                    var palHtml = document.getElementById('resultPal');
-                    palHtml.innerHTML = palResult;
-                }                
-            </pre><!-- End My Code Display -->
 
-        </div><!-- End Syntax Highlighter -->
+               }
+        })
+    </div><!-- /code -->
+</div><!-- /container -->
 
-    </div><!-- End Row -->
-
-</div><!-- End Container -->

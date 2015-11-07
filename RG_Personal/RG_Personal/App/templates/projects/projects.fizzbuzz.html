@@ -1,39 +1,34 @@
-﻿<div class="container">
-
-    <div class="row">
-        <div id="fizz-buzz" class="col-xs-12 col-lg-6">
-            <h2>FizzBuzz</h2>
+﻿<div class="container" id="projects">
+    <h3 class="section-title animated fadeInDown">FizzBuzz</h3>
+    <div class="row" ng-controller="projects-fizzCtrl as fizz">
+        <div class="col-xs-6 animated fadeInLeft">
             <p>This program is designed to display all the numbers between 1 &amp; 100, with every number that is a multiple of 3 being replaced with the word "Fizz", every number that is a multiple of 5 being replaced with the word "Buzz", and finally any number that is a multiple of both 3 &amp; 5 being replaced with the word "FizzBuzz".</p>
-            <input type="button" value="Display Numbers" onclick="fizzBuzz()" class="btn btn-info" />
+            <button type="button" class="btn btn-default" ng-click="fizz.calculate()">Calculate</button>
+        </div><!-- /left side -->
+        <div class="col-xs-6 animated fadeInRight project-results">
+            <h3>Results:</h3>
+            <span ng-repeat="item in fizz.results track by $index">{{item}}</span>
+        </div><!-- /right side -->
+    </div><!-- /row -->
+    <div hljs class="animated fadeInUp">
+        'use strict';
+        angular.module('rg_personal').controller('projects-fizzCtrl', function () {
+            var self = this;
+            this.results = [];
 
-            <div class="results">
-                <h4 id="resultFizz"></h4>
-            </div>
-        </div><!-- end fizz-buzz -->
-
-        <div class="col-xs-12 col-lg-6">
-
-            <pre class="brush: js">
-            
-                //FizzBuzz
-                function fizzBuzz() {
-                    var fizzHtml = document.getElementById('resultFizz');
-                    for (i = 1; i <= 100; i++) {
-                        if ((i % 3 == 0) && (i % 5 == 0)) {
-                            fizzHtml.innerHTML += "FizzBuzz" + " ";
-                        } else if ((i % 3 == 0)) {
-                            fizzHtml.innerHTML += "Fizz" + " ";
-                        } else if ((i % 5 == 0)) {
-                            fizzHtml.innerHTML += "Buzz" + " ";
-                        } else {
-                            fizzHtml.innerHTML += i + " ";
-                        }
+            this.calculate = function () {
+                for (var i = 1; i<= 100; i++){
+                    if (i % 15 == 0) {
+                        self.results.push("FizzBuzz" + " ")
+                    } else if (i % 3 == 0) {
+                        self.results.push("Fizz" + " ")
+                    } else if (i % 5 == 0) {
+                        self.results.push("Buzz" + " ")
+                    } else {
+                        self.results.push(i + " ")
                     }
-                }                
-            </pre><!-- End My Code Display -->
-
-        </div><!-- End Syntax Highlighter -->
-
-    </div><!-- End Row -->
-
-</div><!-- End Container -->
+                }
+            }
+        })
+    </div><!-- /code -->
+</div><!-- /container -->

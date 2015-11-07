@@ -3,83 +3,64 @@
     <p>
         This program is designed to look at a group of numbers, display the largest of the group, give the sum of the group, and multiply the group.
     </p>
-    <tabset justified="true">
-        <tab heading="Demo">
-            <div class="row" ng-controller="projects-maxCtrl as max">
-                <div class="container">
-                    <div class="col-xs-12 col-lg-10 animated fadeInLeft">
-                        <div class="row">
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control" placeholder="Number 1" ng-model="max.model.num1" />
-                            </div>
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control" placeholder="Number 2" ng-model="max.model.num2" />
-                            </div>
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control" placeholder="Number 3" ng-model="max.model.num3" />
-                            </div>
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control" placeholder="Number 4" ng-model="max.model.num4" />
-                            </div>
-                            <div class="col-xs-2">
-                                <input type="text" class="form-control" placeholder="Number 5" ng-model="max.model.num5" />
-                            </div>
-                            <div class="col-xs-4">
-                                <button type="button" class="btn btn-default" ng-click="max.calculate(model)">Calculate</button>
-                            </div>
-                        </div><!-- /row -->
-                    </div><!-- /left column -->
-                    <div class="col-xs-12 col-lg-2 animated fadeInRight">
-                        <div ng-hide="max.error == null">
-                            <h3 class="text-warning">{{max.error}}</h3>
-                            <button type="button" class="btn btn-default" ng-click="max.reset()">Reset</button>
-                        </div>
-                        <div ng-show="max.error == null">
-                            <h3>Largest Number: {{max.largest}}</h3>
-                            <h3>Sum: {{max.sum}}</h3> 
-                            <h3>Product: {{max.product}}</h3>
-                        </div>
-                    </div><!-- /right column-->
-                </div><!-- /container -->
-            </div><!-- /row -->
-        </tab>
-        <tab heading="Code">
-            <div hljs class="animated fadeInUp">
-                'use strict'
-                angular.module('rg_personal').controller('projects-maxCtrl',['$state', function ($state){
-                    var self = this;
-                    this.$state = $state;
-                    this.model = {};
-                    this.largest = '';
-                    this.sum = '';
-                    this.product = '';
-                    this.error = null;
+    <div class="row" ng-controller="projects-maxCtrl as max">
+        
+            <div class="col-xs-8 animated fadeInLeft">
+                <div class="row">
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" placeholder="Number 1" ng-model="max.model.num1" />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" placeholder="Number 2" ng-model="max.model.num2" />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" placeholder="Number 3" ng-model="max.model.num3" />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" placeholder="Number 4" ng-model="max.model.num4" />
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" class="form-control" placeholder="Number 5" ng-model="max.model.num5" />
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="button" class="btn btn-default" ng-click="max.calculate(model)">Calculate</button>
+                    </div>
+                </div><!-- /row -->
+            </div><!-- /left column -->
+            <div class="col-xs-4  animated fadeInRight project-results">
+                <h3>Results:</h3>
+                <ul>
+                    <li ng-repeat="item in max.results track by $index" class="_l">{{item}}</li>
+                </ul>
+            </div><!-- /right column-->
+        
+    </div><!-- /row -->
+    <div hljs class="animated fadeInUp">
+        'use strict'
+        angular.module('rg_personal').controller('projects-maxCtrl',['$state', function ($state){
+            var self = this;
+            this.$state = $state;
+            this.model = {};
+            this.results = [];
 
-                    this.reset = function () {
-                        $state.go($state.current, null, { reload: true });
+            this.add = function (a, b) {
+                return a + Math.round(b);
+            }
+
+            this.calculate = function (model) {
+                var arr = [self.model.num1, self.model.num2, self.model.num3, self.model.num4, self.model.num5];
+                if (isNaN(Math.max(self.model.num1, self.model.num2, self.model.num3, self.model.num4, self.model.num5)) ||
+                    isNaN(arr.reduce(self.add, 0)) ||
+                    isNaN(self.model.num1 * self.model.num2 * self.model.num3 * self.model.num4 * self.model.num5) ) {
+                    self.results.push("Pleas enter a number");
+                } else {
+                    self.results.push("The largest number is: " + Math.max(self.model.num1, self.model.num2, self.model.num3, self.model.num4, self.model.num5));
+                    self.results.push("The sum of the numbers is: " + arr.reduce(self.add, 0));
+                    self.results.push("The product of the numbers is: " + (self.model.num1 * self.model.num2 * self.model.num3 * self.model.num4 * self.model.num5));
                     }
+            }
 
-                    this.add = function (a, b) {
-                        return a + Math.round(b);
-                    }
-
-                    this.calculate = function (model) {
-                        var arr = [self.model.num1, self.model.num2, self.model.num3, self.model.num4, self.model.num5];
-                        if (isNaN(Math.max(self.model.num1, self.model.num2, self.model.num3, self.model.num4, self.model.num5)) ||
-                        isNaN(arr.reduce(self.add, 0)) ||
-                        isNaN(self.model.num1 * self.model.num2 * self.model.num3 * self.model.num4 * self.model.num5) ) {
-                            self.error = 'Please enter a number.';
-                        } else {
-                            self.largest = Math.max(self.model.num1, self.model.num2, self.model.num3, self.model.num4, self.model.num5);
-                            self.sum = arr.reduce(self.add, 0);
-                            self.product = (self.model.num1 * self.model.num2 * self.model.num3 * self.model.num4 * self.model.num5);
-                        }
-                    }
-
-                }])
-            </div>
-        </tab>
-    </tabset>
+        }])
+    </div>
     
-
 </div><!-- End Container -->

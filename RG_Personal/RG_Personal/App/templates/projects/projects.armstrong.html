@@ -1,58 +1,56 @@
-﻿<div class="container">
-
-    <div class="row">
-
-        <div id="armstrong-numbers" class="col-xs-12 col-lg-4">
-            <h2>Armstrong Numbers</h2>
+﻿<div class="container" id="projects">
+    <h3 class="section-title animated fadeInDown">Armstrong Numbers</h3>
+    <div class="row" ng-controller="projects-armstrongCtrl as armstrong">
+        <div class="col-xs-8 animated fadeInLeft">
             <p>What is an <a href="http://en.wikipedia.org/wiki/Narcissistic_number#Armstrong_number">armstrong number</a> ?</p>
             <p>In recreational number theory, a narcissistic number (also known as a pluperfect digital invariant (PPDI), an Armstrong number[4] (after Michael F. Armstrong) or a plus perfect number)[6] is a number that is the sum of its own digits each raised to the power of the number of digits. This definition depends on the base b of the number system used, e.g., b = 10 for the decimal system or b = 2 for the binary system.</p>
             <p>For example, 153 is an armstrong number, as the associated sequence is:</p>
             <p>1<sup>3</sup> + 5<sup>3</sup> + 3<sup>3</sup> = 153.</p>
             <p>This program is desgnined to calaculate and then display all three digit Armstrong Numbers.</p>
-            <input type="button" value="Calculate" onclick="disArmstrong(100)" class="btn btn-info" />
+            <button type="button" class="btn btn-default" ng-click="armstrong.calculate()">Calculate</button>
+        </div><!-- /left side -->
+        <div class="col-xs-4 animated fadeInRight project-results">
+            <h3>Results:</h3>
+            <ul>
+                <li ng-repeat="item in armstrong.results track by $index" class="_l">{{item}}</li>
+            </ul>
+        </div><!-- /right side -->
+    </div><!-- /row -->
+    <div hljs class="animated fadeInUp">
+        'use strict';
+        angular.module('rg_personal').controller('projects-armstrongCtrl',function(){
+            var self = this;
+            this.results = [];
 
+            this.isArmstrong = function (n) {
+                var arr = [];
+                var newNum = 0;
+                //Take n and split the digits into single numbers
+                var num = n.toString().split("");
+                for (var i = 0; i < num.length; i++) {
+                    arr[i] = parseInt(num[i], 10);
+                }
+                //Now cube the numbers and add them together
+                for (var i = 0; i < arr.length; i++) {
+                    newNum += Math.pow(arr[i], 3);
+                }
+                //Here we check to see if the newNum matches the original num
+                if (newNum === n) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
 
-        </div><!-- end armstrong-numbers -->
-
-        <div class="col-xs-12 col-lg-2">
-            <h4 id="resultArmstrong"></h4>
-        </div><!-- End Results -->
-
-        <div class="col-xs-12 col-lg-6">
-
-            <pre class="brush: js">
-                //Armstrong Numbers
-                function armstrongChecker(n) {
-                    var arr = [];
-                    var newNum = 0;
-                    //Take n and split the digits into single numbers
-                    var num = n.toString().split("");
-                    for (var i = 0; i < num.length; i++) {
-                        arr[i] = parseInt(num[i], 10);
-                    }
-                    //Now cube the numbers and add them together
-                    for (var i = 0; i < arr.length; i++) {
-                        newNum += Math.pow(arr[i], 3);
-                    }
-                    //Here we check to see if the newNum matches the original num
-                    if (newNum === n) {
-                        return true;
-                    } else {
-                        return false;
+            this.calculate = function () {
+                for (var j = 1; j < 1000; j++) {
+                    if (self.isArmstrong(j)) {
+                        self.results.push(j + " is an Armstrong Number.");
                     }
                 }
-                function disArmstrong(num) {
-                    var armstrong = document.getElementById('resultArmstrong');
-                    for (j = num; j < 1000; j++) {
-                        if (armstrongChecker(j)) {
-                            armstrong.innerHTML += j + " is an Armstrong Number." + "<br />";
-                        }
-                    }
-                }
-            </pre><!--  End My Code Display-->
+            }
+        })
+    </div><!-- /code -->
+</div><!-- /container -->
 
-        </div><!-- End Syntax Highlighter -->
 
-    </div><!--  End Row -->
-
-</div><!--  End Container -->

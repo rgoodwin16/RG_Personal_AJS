@@ -1,10 +1,8 @@
-﻿<div class="container">
-
-    <div class="row">
-
-        <div id="happy-numbers" class="col-xs-12 col-lg-4">
-            <h2>Happy Numbers</h2>
-            <p>What is a <a href="http://en.wikipedia.org/wiki/Happy_number">happy number</a> ?</p>
+﻿<div class="container" id="projects">
+    <h3 class="section-title animated fadeInDown">Happy Numbers</h3>
+    <div class="row" ng-controller="projects-happyCtrl as happy">
+        <div class="col-xs-8 animated fadeInLeft">
+            <p>What is a <a href="http://en.wikipedia.org/wiki/Happy_number" class="main-color">happy number</a> ?</p>
             <p>A happy number is a number defined by the following process: Starting with any positive integer, replace the number by the sum of the squares of its digits, and repeat the process until the number equals 1 (where it will stay), or it loops endlessly in a cycle which does not include 1. Those numbers for which this process ends in 1 are happy numbers, while those that do not end in 1 are unhappy numbers (or sad numbers).</p>
             <p>For example, 19 is happy, as the associated sequence is:</p>
             <p>1<sup>2</sup> + 9<sup>2</sup> = 82</p>
@@ -12,54 +10,54 @@
             <p>6<sup>2</sup> + 8<sup>2</sup> = 100</p>
             <p>1<sup>2</sup> + 0<sup>2</sup> + 0<sup>2</sup> = 1.</p>
             <p>This program is designed to calculate and then display the first five Happy Numbers.</p>
-            <input type="button" value="Calculate" onclick="disHappy(1)" class="btn btn-info" />
+            <button type="button" class="btn btn-default" ng-click="happy.calculate()">Calculate</button>
+        </div><!-- /left side -->
+        <div class="col-xs-4 animated fadeInRight project-results">
+            <h3>Results:</h3>
+            <ul>
+                <li ng-repeat="item in happy.results track by $index" class="_l">{{item}}</li>
+            </ul>
+        </div><!-- /right side -->
+    </div><!-- /row -->
+    <div hljs class="animated fadeInUp">
+        'use strict';
+        angular.module('rg_personal').controller('projects-happyCtrl',['$state', function ($state){
+            var self = this;
+            this.$state = $state;
+            this.results = [];
 
+            this.isHappy = function (n) {
+                var arr = [];
+                var newNum = 0;
+                //Ok split the number into a string then into an array
+                var num = n.toString().split("");
+                for (var i = 0; i &lt; num.length; i++) {
+                    arr[i] = parseInt(num[i], 10);
+                }
+                //Ok square the numbers and add them to newNum
+                for (var i = 0; i &lt; arr.length; i++) {
+                    newNum += Math.pow(arr[i], 2);
+                }
+                //And here is a quick check to stop from hitting an endless loop
+                if (newNum === 58 || newNum === 4 || newNum === 37) {
+                    return false;
+                }
+                if (newNum === 1) {
+                    return true;
+                } else {
+                    return self.isHappy(newNum);
+                }
+            }
 
-
-        </div><!-- end happy-numbers -->
-
-        <div class="col-xs-12 col-lg-2">
-            <h4 id="resultHappy"></h4>
-        </div><!-- End Results -->
-
-        <div class="col-xs-12 col-lg-6">
-
-            <pre class="brush: js">
-                  //Happy Numbers
-                    function happyChecker(n) {
-                        var arr = [];
-                        var newNum = 0;
-                        //Ok split the number into a string then into an array
-                        var num = n.toString().split("");
-                        for (var i = 0; i < num.length; i++) {
-                            arr[i] = parseInt(num[i], 10);
-                        }
-                        //Ok square the numbers and add them to newNum
-                        for (var i = 0; i < arr.length; i++) {
-                            newNum += Math.pow(arr[i], 2);
-                        }
-                        //And here is a quick check to stop from hitting an endless loop
-                        if (newNum === 58 || newNum === 4 || newNum === 37) {
-                            return false;
-                        }
-                        if (newNum === 1) {
-                            return true;
-                        } else {
-                            return happyChecker(newNum);
-                        }
+            this.calculate = function () {
+                for (var j = 1; j &lt; 20; j++) {
+                    if (self.isHappy(j)) {
+                        self.results.push(j + " is a Happy Number.");
                     }
-                    function disHappy(num) {
-                        var happy = document.getElementById('resultHappy');
-                        for (j = num; j < 20; j++) {
-                            if (happyChecker(j)) {
-                                happy.innerHTML += j + " is a Happy Number." + "<br />";
-                            }
-                        }
-                    }
-            </pre><!--  End My Code Display -->
+                }
+            }
+        }])
+    </div><!-- /code -->
+</div><!-- /container -->
 
-        </div><!-- End Syntax Highlighter -->
 
-    </div><!--  End Row -->
-
-</div><!-- End Container -->

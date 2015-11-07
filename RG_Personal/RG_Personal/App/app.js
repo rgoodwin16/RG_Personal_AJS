@@ -1,4 +1,4 @@
-﻿var app = angular.module('rg_personal', ['ui.router', 'ui.bootstrap','LocalStorageModule','hljs']);
+﻿var app = angular.module('rg_personal', ['ui.router', 'ui.bootstrap','LocalStorageModule','hljs','filereader']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     //

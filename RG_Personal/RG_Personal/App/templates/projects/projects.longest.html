@@ -1,4 +1,23 @@
-﻿<div class="container">
+﻿<div class="container" id="projects">
+    <h3 class="section-title animated fadeInDown">Longest Word</h3>
+    <div class="row" ng-controller="projects-longestCtrl as longest">
+        <div class="col-xs-8 animated fadeInLeft">
+            <p>This program is designed to search through a text file and display the longest word within it.</p>
+            <div class="btn btn-default">
+                <span>File</span>
+                <input type="file" />
+            </div>
+        
+        </div><!-- /left side -->
+        <div class="col-xs-4 animated fadeInRight project-results">
+            <h3>Results:</h3>
+        </div><!-- /right side -->
+    </div><!-- /row -->
+    <div hljs class="animated fadeInUp">
+
+    </div><!-- /code -->
+</div><!-- /container -->
+<div class="container">
 
     <div class="row">
         <div id="longest-word" class="col-xs-12 col-lg-6">
