@@ -265,6 +265,9 @@
     <Content Include="App\controllers\home\homeCtrl.js" />
     <Content Include="App\controllers\modal\modalCtrl.js" />
     <Content Include="App\controllers\portfolio\portfolioCtrl.js" />
+    <Content Include="App\controllers\projects\projects-factCtrl.js" />
+    <Content Include="App\controllers\projects\projects-maxCtrl.js" />
+    <Content Include="App\controllers\projects\projects-perfectCtrl.js" />
     <Content Include="App\controllers\projects\projectsCtrl.js" />
     <Content Include="App\services\auth\authInterceptorSvc.js" />
     <Content Include="App\services\auth\authSvc.js" />
@@ -1147,9 +1150,13 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Theme_Template\css\animate.css" />
+    <Content Include="Theme_Template\css\github-theme.css" />
     <Content Include="Theme_Template\css\styles-1.css" />
+    <Content Include="Theme_Template\css\SyntaxHighlighter\shBrushJScript.js" />
     <Content Include="Theme_Template\css\SyntaxHighlighter\shCore.css" />
+    <Content Include="Theme_Template\css\SyntaxHighlighter\shCore.js" />
     <Content Include="Theme_Template\css\SyntaxHighlighter\shThemeDefault.css" />
+    <Content Include="Theme_Template\css\tomorrow-night.css" />
     <Content Include="Theme_Template\img\about.jpg" />
     <Content Include="Theme_Template\img\bp_logo.png" />
     <Content Include="Theme_Template\img\bt_logo.png" />

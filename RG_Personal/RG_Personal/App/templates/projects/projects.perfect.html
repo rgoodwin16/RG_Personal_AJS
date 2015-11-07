@@ -1,57 +1,54 @@
-﻿<div class="container">
-
-    <div class="row">
-
-        <div id="perfect-numbers" class="col-xs-12 col-lg-4">
-
-            <h2>Perfect Numbers</h2>
-            <p>What is a <a href="http://en.wikipedia.org/wiki/Perfect_number">perfect number</a> ?</p>
+﻿<div class="container" id="projects">
+    <h3 class="section-title animated fadeInDown">Perfect Numbers</h3>
+    <div class="row" ng-controller="projects-perfectCtrl as perfect">
+        <div class="col-xs-8 animated fadeInLeft">
+            <p>What is a <a href="http://en.wikipedia.org/wiki/Perfect_number" class="main-color">perfect number</a> ?</p>
             <p>In number theory, a perfect number is a positive integer that is equal to the sum of its proper positive divisors, that is, the sum of its positive divisors excluding the number itself (also known as its aliquot sum). Equivalently, a perfect number is a number that is half the sum of all of its positive divisors (including itself) i.e. σ1(n) = 2n.</p>
             <p>The first perfect number is 6, because 1, 2, and 3 are its proper positive divisors, and 1 + 2 + 3 = 6.</p>
             <p>This program is designed to calculate and then display all Perfect Numbers between 1 &amp; 10000.</p>
-            <input type="button" value="Calculate" onclick="displayPerfect(1)" class="btn btn-info" />
+            <br />
+            <button type="button" class="btn btn-default" ng-click="perfect.calculate()">Calculate</button>
+        </div>
+        <div class="col-xs-4 animated fadeInRight project-results">
+            <h4>Results:</h4>
+            <ul>
+                <li ng-repeat="item in perfect.result track by $index" class="_l">{{item}}</li>
+            </ul>
+        </div>
+    </div><!-- /row -->
+    <br />
+    <div hljs class="animated fadeInUp">
+        'use strict';
+        angular.module('rg_personal').controller('projects-perfectCtrl',['$state', function ($state) {
+        var self = this;
+        this.$state = $state;
+        this.result = [];
 
+        this.isPerfect = function (n) {
+            var temp = 0;
+            for (var i = 1; i <= n / 2; i++) {
+                if (n % i === 0) {
+                    temp += i;
+                }
+            }
+            if (temp === n) {
+                return true;
 
-        </div><!-- End Perfect Numbers -->
+            } else {
+                return false;
 
-        <div class="col-xs-12 col-lg-2">
-            <h4 id="resultPerfect"></h4>
-        </div><!-- End Results -->
+            }
+        }
 
-
-        <div class="col-xs-12 col-lg-6">
-
-            <pre class="brush: js">
-                
-                //Perfect Numbers
-                    
-                    function perfectChecker(n) {
-                        var temp = 0;
-                        for (var i = 1; i <= n / 2; i++) {
-                            if (n % i === 0) {
-                                temp += i;
-                            }
-                        }
-                        if (temp === n) {
-                            return true;
-       
-                        } else {
-                            return false;
-        
-                        }
+        this.calculate = function () {
+            for (var j = 0; j < 10000; j++) {
+                if (self.isPerfect(j)) {
+                    self.result.push(j + " is a Perfect Number.");
                     }
-                    function displayPerfect(num) {
-                        var displayHtml = document.getElementById('resultPerfect');
-                        for (j = num; j < 10000; j++) {
-                            if (perfectChecker(j)) {
-                                displayHtml.innerHTML += j + " is a Perfect Number" + "<br />";
-                            }
-                        }
-                    }    
-            </pre><!-- End My Code Display -->
+                }
+            }
 
-        </div><!-- End Syntax Highlighter -->
+        }])
+    </div>
+</div><!-- /container -->
 
-    </div><!-- End Row -->
-
-</div><!-- End Container-->

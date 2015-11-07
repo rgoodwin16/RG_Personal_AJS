@@ -1,51 +1,49 @@
-﻿<div class="container">
-
-    <div class="row">
-
-        <div id="factorials" class="col-xs-12 col-lg-4 animated fadeInLeft">
-            <h2>Factorials</h2>
+﻿<div class="container" id="projects">
+    <h3 class="section-title animated fadeInDown">Factorials</h3>
+    <div class="row" ng-controller="projects-factCtrl as fact">
+        <div class="col-xs-8 animated fadeInDown">
             <p>What is a <a href="http://en.wikipedia.org/wiki/Factorial">factorial</a> ?</p>
             <p>In mathematics, the factorial of a non-negative integer n, denoted by n!, is the product of all positive integers less than or equal to n. For example,</p>
             <p>5! = 5 x 4 x 3 x 2 x 1 = 120.</p>
             <p>This program is designed to display the Factorial of a given number.</p>
-            <p>Please enter a number.</p>
-            <input type="text" id="factNum" class="form-control" /><br />
-            <input type="button" value="Calculate" onclick="factorial()" class="btn btn-info" />
+            <div class="row">
+                <div class="col-xs-2">
+                    <input type="text" class="form-control" ng-model="fact.model.num" />
+                </div>
+                <div class="col-xs-10">
+                    <button type="button" class="btn btn-default" ng-click="fact.calculate(model)">Calculate</button>
+                </div>
+            </div><!-- /row -->
+        </div><!-- /left side -->
+        <div class="col-xs-4 project-results">
+            <h3>Results:</h3>
+            <h4 class="text-right">{{fact.result}}</h4>
+        </div><!-- /right side -->
+        </div><!-- /row -->
+    <div hljs class="animated fadeInUp">
+        'use strict';
+        angular.module('rg_personal').controller('projects-factCtrl', ['$state', function ($state) {
+            var self = this;
+            this.$state = $state;
+            this.model = {};
+            this.result = '';
 
-        </div><!-- end factorials -->
+            this.factorial = function(n) {
+                if (isNaN(n) || n < 1) {
+                    self.result = 'Please enter a positive interger.';
+                }
 
-        <div class="col-xs-12 col-lg-2">
-            <h3 id="resultFact"></h3>
-        </div><!-- End Results -->
+                if (n === 1) {
+                    return 1;
+                }
 
+                return n * self.factorial(n -1);
+            }
 
-        <div class="col-xs-12 col-lg-6 animated fadeInRight">
+            this.calculate = function (model) {
+                self.result = "The factorial of " + self.model.num +" is: "+  self.factorial(self.model.num);
+            }
 
-            <pre class=" brush: js">
-                //Factorials
-                    function fact(num) {
-                        if (num < 0)
-                            return 'Undefined';
-                        var fact = 1;
-                        for (var i = num; i > 1; i--)
-                            fact *= i;
-                        return fact;
-                    }
-                    function factorial() {
-                        var factNum = parseFloat(document.getElementById('factNum').value);
-                        var factHtml = document.getElementById('resultFact');
-                        if (isNaN(factNum)) {
-                            factHtml.innerHTML = "Please enter a real number.";
-                        } else {
-                            var factResult = fact(factNum);
-                            factHtml.innerHTML = "The Factorial of " + factNum + " is:  " + factResult;
-                        }
-                    }
-            </pre><!--  End My Code Display -->
-
-        </div><!-- End Syntax Highlighter -->
-
-    </div><!-- End Row -->
-
-
-</div>
+        }])
+    </div><!-- /hljs -->
+</div><!-- /container -->

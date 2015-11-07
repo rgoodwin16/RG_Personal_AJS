@@ -1,77 +1,85 @@
-﻿<div class="container">
-    <div class="row">
+﻿<div class="container" id="projects">
+    <h3 class="section-title animated fadeInDown">Largest Number | Sum | Product</h3>
+    <p>
+        This program is designed to look at a group of numbers, display the largest of the group, give the sum of the group, and multiply the group.
+    </p>
+    <tabset justified="true">
+        <tab heading="Demo">
+            <div class="row" ng-controller="projects-maxCtrl as max">
+                <div class="container">
+                    <div class="col-xs-12 col-lg-10 animated fadeInLeft">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" placeholder="Number 1" ng-model="max.model.num1" />
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" placeholder="Number 2" ng-model="max.model.num2" />
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" placeholder="Number 3" ng-model="max.model.num3" />
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" placeholder="Number 4" ng-model="max.model.num4" />
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="text" class="form-control" placeholder="Number 5" ng-model="max.model.num5" />
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="button" class="btn btn-default" ng-click="max.calculate(model)">Calculate</button>
+                            </div>
+                        </div><!-- /row -->
+                    </div><!-- /left column -->
+                    <div class="col-xs-12 col-lg-2 animated fadeInRight">
+                        <div ng-hide="max.error == null">
+                            <h3 class="text-warning">{{max.error}}</h3>
+                            <button type="button" class="btn btn-default" ng-click="max.reset()">Reset</button>
+                        </div>
+                        <div ng-show="max.error == null">
+                            <h3>Largest Number: {{max.largest}}</h3>
+                            <h3>Sum: {{max.sum}}</h3> 
+                            <h3>Product: {{max.product}}</h3>
+                        </div>
+                    </div><!-- /right column-->
+                </div><!-- /container -->
+            </div><!-- /row -->
+        </tab>
+        <tab heading="Code">
+            <div hljs class="animated fadeInUp">
+                'use strict'
+                angular.module('rg_personal').controller('projects-maxCtrl',['$state', function ($state){
+                    var self = this;
+                    this.$state = $state;
+                    this.model = {};
+                    this.largest = '';
+                    this.sum = '';
+                    this.product = '';
+                    this.error = null;
 
-        <div id="max-sum-multiply" class="col-xs-12 col-lg-4 animated fadeInLeft">
-            <h2>Max of Five | Sum of Five | Multiply Five</h2>
-            <p>This program is designed to look a group of numbers, display the largest of the group, give the sum of the group, and multiply the group.</p>
-            <p>Please enter a different number into each box.</p>
-            <input type="text" id="num1" class="form-control" /><br />
-            <input type="text" id="num2" class="form-control" /><br />
-            <input type="text" id="num3" class="form-control" /><br />
-            <input type="text" id="num4" class="form-control" /><br />
-            <input type="text" id="num5" class="form-control" /><br />
-            <input type="button" value="Largest Number" onclick="maxOfFive()" class="btn btn-info .btn-large" />
-            <input type="button" value="Sum" onclick="sumOfFive()" class="btn btn-info" />
-            <input type="button" value="Multiply" onclick="multiplyFive()" class="btn btn-info" />
+                    this.reset = function () {
+                        $state.go($state.current, null, { reload: true });
+                    }
 
+                    this.add = function (a, b) {
+                        return a + Math.round(b);
+                    }
 
-        </div><!-- End max-sum-product -->
+                    this.calculate = function (model) {
+                        var arr = [self.model.num1, self.model.num2, self.model.num3, self.model.num4, self.model.num5];
+                        if (isNaN(Math.max(self.model.num1, self.model.num2, self.model.num3, self.model.num4, self.model.num5)) ||
+                        isNaN(arr.reduce(self.add, 0)) ||
+                        isNaN(self.model.num1 * self.model.num2 * self.model.num3 * self.model.num4 * self.model.num5) ) {
+                            self.error = 'Please enter a number.';
+                        } else {
+                            self.largest = Math.max(self.model.num1, self.model.num2, self.model.num3, self.model.num4, self.model.num5);
+                            self.sum = arr.reduce(self.add, 0);
+                            self.product = (self.model.num1 * self.model.num2 * self.model.num3 * self.model.num4 * self.model.num5);
+                        }
+                    }
 
-        <div class="col-xs-12 col-lg-2">
-            <h3 id="resultMax"></h3>
-            <h3 id="resultSum"></h3>
-            <h3 id="resultMultiply"></h3>
-        </div><!-- End Results -->
+                }])
+            </div>
+        </tab>
+    </tabset>
+    
 
-        <div class="col-xs-12 col-lg-6 animated fadeInRight">
-
-            <pre class="brush: js">
-              
-              //Max Of Five | Sum of Five | Product of Five
-                function maxOfFive() {
-                    var num1 = document.getElementById('num1').value;
-                    var num2 = document.getElementById('num2').value;
-                    var num3 = document.getElementById('num3').value;
-                    var num4 = document.getElementById('num4').value;
-                    var num5 = document.getElementById('num5').value;
-                    var max = Math.max(num1, num2, num3, num4, num5);
-                    var resultMax = document.getElementById('resultMax');
-                    resultMax.innerHTML = "The largest number is: " + max;
-                }
-                function sum(previousValue, currentValue) {
-                    return previousValue + Math.round(currentValue);
-                }
-                function multiply(previousValue, currentValue) {
-                    return previousValue * Math.round(currentValue);
-                }
-                function sumOfFive() {
-                    var numbers = [
-                        document.getElementById('num1').value,
-                        document.getElementById('num2').value,
-                        document.getElementById('num3').value,
-                        document.getElementById('num4').value,
-                        document.getElementById('num5').value,
-                    ];
-                    var sumResult = numbers.reduce(sum, 0);
-                    var sumHtml = document.getElementById('resultSum');
-                    sumHtml.innerHTML = "The Sum of the numbers is: " + sumResult;
-                }
-                function multiplyFive() {
-                    var numbers = [
-                        document.getElementById('num1').value,
-                        document.getElementById('num2').value,
-                        document.getElementById('num3').value,
-                        document.getElementById('num4').value,
-                        document.getElementById('num5').value,
-                    ];
-                    var multiplyResult = numbers.reduce(multiply, 1);
-                    var multiplyHtml = document.getElementById('resultMultiply');
-                    multiplyHtml.innerHTML = "The Product of the numbers is: " + multiplyResult;
-                }
-            </pre><!--  End My Code Display -->
-
-        </div><!-- End Syntax Highlighter -->
-
-
-    </div><!-- End Row -->
 </div><!-- End Container -->

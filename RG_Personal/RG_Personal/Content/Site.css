@@ -20,3 +20,196 @@
 ._c {
     cursor:pointer;
 }
+
+#projects{
+	position: relative;
+}
+
+.color-overlay:before{
+	position: absolute;
+	display: block;
+	content: "";
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+	opacity:.8;
+	z-index: 1;
+}
+
+#projects .container{
+	position: relative;
+	z-index: 2;
+}
+
+
+
+#projects p{
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
+#projects .lead{
+	font-size: 21px;
+	font-weight: 400;
+}
+
+#projects .mail-styled{
+	display: inline-block;
+	margin-bottom: 50px;
+	padding: 0;
+	font-size: 38px;
+	font-weight: 400;
+	color:#555;
+	
+}
+
+#projects .mail-styled:hover,
+#projects .mail-styled:focus,
+#projects .mail-styled:active{
+	border-bottom-color: transparent;
+	text-decoration: none;
+
+}
+
+#projects .social-links{
+	margin:30px 0;
+	font-size: 28px;
+}
+
+#projects .social-links .fa{
+	-webkit-transition:color .15s ease-out;
+	transition:color .15s ease-out;
+}
+
+#projects .social-links a:hover .fa{
+	color:#00CCCB !important;
+}
+
+#projectsForm .form-group{
+	position: relative;
+}
+
+#projects .form-group label{
+	position: absolute;
+	top:10px;
+	font-size:18px;
+	line-height:24px;
+	font-weight:400;
+	color:#555;
+	z-index: -1;
+	-webkit-transition: all .25s ease-out;
+	transition: all .25s ease-out;
+}
+
+#projectsForm .form-control:focus + label{
+	top:-20px;
+	color:#fff;
+}
+
+#projectsForm .form-control.input-filled + label{
+	top:-20px;
+}
+
+#projects .form-control{
+	padding:10px 0;
+	margin-bottom: 40px;
+	font-size: 18px;
+	height:auto;
+	background: none;
+	border:none;
+	border-radius: 0;
+	border-bottom: 2px solid;
+	box-shadow: none !important;
+	-webkit-transition: border .25s ease-out;
+	transition: border .25s ease-out;
+}
+
+#projects .form-control:focus{
+	border-bottom: 2px solid #00CCCB;
+}
+
+#projects textarea{
+	max-width: 100%;
+	min-width: 100%;
+}
+
+#projects .form-control::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+    opacity:.5;
+}
+#projects .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#fff;
+    opacity:.5;
+}
+#projects .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#fff;
+    opacity:.5;
+}
+#projects .form-control:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+    opacity:.5;
+}
+
+#projects .form-control:focus::-webkit-input-placeholder {
+    opacity:1;
+}
+
+#projects .form-control:focus:-moz-placeholder {
+    opacity:1;
+}
+
+#projects .form-control:focus::-moz-placeholder {
+    opacity:1;
+}
+
+#projects .form-control:focus:-ms-placeholder {
+    opacity:1;
+}
+
+#projects .btn,
+#projects .btn:focus{
+	font-size: 21px;
+	background: none !important;
+	-webkit-transition: all .15s ease-out;
+	transition: all .15s ease-out;
+}
+
+#projects .btn:hover,
+#projects .btn:active{
+	color:#00CCCB;
+}
+
+#projects .form-group .error-message{
+	margin-left:8px;
+	color:#00CCCB;
+}
+
+#projects{
+	position: relative;
+}
+
+#projects .projects-form-message{
+	position: absolute;
+	right:15px;
+	top:100%;
+	margin-top: 3px;
+	font-size: 16px;
+	opacity:.7;
+}
+
+#projectsForm .projects-form-message .fa{
+	margin-right: 5px;
+}
+
+._l{
+    font-size:22px;
+}
+.m-t-40{
+    margin-top:40px;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
+.project-results{
+    border: 1px solid #ddd;
+}

@@ -18,20 +18,11 @@ angular.module('rg_personal').controller('projectsCtrl',['$state',function($stat
                      "projects.budgetplanner"];
 
     this.nextProject = function (name) {
-        if (self.projects[self.projects.indexOf(name) + 1] !== undefined) {
-            $state.go(self.projects[self.projects.indexOf(name) + 1])
-        } else {
-            $state.go('portfolio');
-        }
+        $state.go(self.projects[self.projects.indexOf(name) + 1])
     }
 
     this.prevProject = function (name) {
-        if (self.projects[self.projects.indexOf(name) - 1] !== undefined) {
-            $state.go(self.projects[self.projects.indexOf(name) - 1])
-        } else {
-            $state.go('portfolio');
-        }
-        
+        $state.go(self.projects[self.projects.indexOf(name) - 1])
     }
 
 }])

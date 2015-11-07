@@ -16,12 +16,12 @@
     <link rel="apple-touch-icon" sizes="144x144" href="~/Theme_Template/img/rg_144.png" />
 
     <!-- Begin CSS -->
-    <link href="~/Theme_Template/css/SyntaxHighlighter/shCore.css" rel="stylesheet" />
-    <link href="~/Theme_Template/css/SyntaxHighlighter/shThemeDefault.css" rel="stylesheet" />
+
     <link href="~/Content/font-awesome.css" rel="stylesheet" />
     <link href="~/Theme_Template/css/animate.css" rel="stylesheet" />
     <link href="~/Theme_Template/css/styles-1.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
+    <link href="~/Theme_Template/css/github-theme.css" rel="stylesheet" />
 
     <!-- Begin Fonts -->
     <link href='//fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,200,600,700' rel='stylesheet' type='text/css'>
@@ -125,6 +125,9 @@
     <script src="~/Scripts/angular-local-storage.min.js"></script>
     <script src="~/Scripts/angular-ui/ui-bootstrap.min.js"></script>
     <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script src="http://pc035860.github.io/angular-highlightjs/angular-highlightjs.min.js"></script>
+
 
     <!-- Main App -->
     <script src="~/App/app.js"></script>
@@ -149,5 +152,9 @@
     <script src="~/App/controllers/contact/contactCtrl.js"></script>
     <!-- Projects -->
     <script src="~/App/controllers/projects/projectsCtrl.js"></script>
+    <script src="~/App/controllers/projects/projects-maxCtrl.js"></script>
+    <script src="~/App/controllers/projects/projects-factCtrl.js"></script>
+    <script src="~/App/controllers/projects/projects-perfectCtrl.js"></script>
+
 </body>
 </html>
