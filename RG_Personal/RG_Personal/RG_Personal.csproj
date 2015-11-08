@@ -274,9 +274,9 @@
     <Content Include="App\controllers\projects\projects-palindromeCtrl.js" />
     <Content Include="App\controllers\projects\projects-perfectCtrl.js" />
     <Content Include="App\controllers\projects\projectsCtrl.js" />
+    <Content Include="App\directives\onReadFile.js" />
     <Content Include="App\services\auth\authInterceptorSvc.js" />
     <Content Include="App\services\auth\authSvc.js" />
-    <Content Include="App\services\file_reader\filereader.service.js" />
     <Content Include="App\templates\about\about.html" />
     <Content Include="App\templates\blog\blog.admin.html" />
     <Content Include="App\templates\blog\blog.details.html" />
