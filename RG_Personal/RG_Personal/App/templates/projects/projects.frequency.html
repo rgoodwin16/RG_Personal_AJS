@@ -1,4 +1,21 @@
-﻿<div class="container">
+﻿<div class="container" id="projects">
+    <h3 class="section-title animated fadeInDown">Word Frequency</h3>
+    <div class="row" ng-controller="projects-frequencyCtrl as frequency">
+        <div class="col-xs-4 animated fadeInLeft">
+            <p>This program is designed to search through a text file and then display how many times each word shows up.</p>
+            <input type="file" on-read-file="frequency.getTxt($fileContent)" />
+            <button type="button" class="btn btn-default" ng-click="frequency.calculate()">Calculate</button>
+        </div><!-- /left side -->
+        <div class="col-xs-8 animated fadeInRight project-results">
+            <h3>Results:</h3>
+            <h4 ng-bind-html="frequency.result | renderHtmlCorrectly"></h4>
+        </div><!-- /right side -->
+    </div><!-- /row -->
+    <div hljs class="animated fadeInUp">
+        
+    </div><!-- /code -->
+</div><!-- /container -->
+<div class="container">
 
     <div class="row">
         <div id="#word-frequency" class="col-xs-12 col-lg-6">
