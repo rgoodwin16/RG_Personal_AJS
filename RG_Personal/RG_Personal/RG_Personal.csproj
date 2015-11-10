@@ -242,6 +242,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -251,6 +252,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Code First\BlogPost.cs" />
     <Compile Include="Models\Code First\Comment.cs" />
+    <Compile Include="Models\ContactMessage.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -267,7 +269,9 @@
     <Content Include="App\controllers\portfolio\portfolioCtrl.js" />
     <Content Include="App\controllers\projects\projects-armstrongCtrl.js" />
     <Content Include="App\controllers\projects\projects-factCtrl.js" />
+    <Content Include="App\controllers\projects\projects-filterCtrl.js" />
     <Content Include="App\controllers\projects\projects-fizzCtrl.js" />
+    <Content Include="App\controllers\projects\projects-frequencyCtrl.js" />
     <Content Include="App\controllers\projects\projects-happyCtrl.js" />
     <Content Include="App\controllers\projects\projects-longestCtrl.js" />
     <Content Include="App\controllers\projects\projects-maxCtrl.js" />

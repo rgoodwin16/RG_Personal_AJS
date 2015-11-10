@@ -12,82 +12,42 @@
         </div><!-- /right side -->
     </div><!-- /row -->
     <div hljs class="animated fadeInUp">
-        
+        'use strict';
+        angular.module('rg_personal').controller('projects-frequencyCtrl',function() {
+            var self = this;
+            var content = '';
+            var result = '';
+
+            this.getTxt = function ($fileContent) {
+                self.content = $fileContent;
+            }
+
+            this.calculate = function () {
+                var arr = self.content.split(" ");
+                var wordFrequency = "";
+                var selectedWord = "";
+                var printedWords = {};
+                // First Count The Words in the Array
+                for (var i = 0; i < arr.length; i++) {
+                    selectedWord = arr[i].replace(/[^\w]/gi, '').toLowerCase();
+                    if (printedWords[selectedWord] != null)
+                        printedWords[selectedWord]++;
+                    else
+                        printedWords[selectedWord] = 1;
+                }
+                // Create Dictionary - Create Array of Objs
+                var objArr = [];
+                for (var key in printedWords) {
+                    objArr.push({ word: key, count: printedWords[key] });
+                }
+                //Sort Dictionary in Descending Order
+                objArr.sort(function (a, b) { return b.count - a.count });
+                wordFrequency = objArr.reduce(function (a, b) {
+                    return a += b.word + " appears " + b.count + " times." + "<br />"
+                }, " ");
+                self.result =  wordFrequency;
+            }
+        })
     </div><!-- /code -->
 </div><!-- /container -->
-<div class="container">
 
-    <div class="row">
-        <div id="#word-frequency" class="col-xs-12 col-lg-6">
-            <h2>Word Frequency</h2>
-            <p>This program is designed to search through a text file and then display how many times each word shows up.</p>
-            <input type="file" id="freqFileInput"><br />
-            <input type="button" value="Search" onclick="wordFrequencyReadText()" class="btn btn-info" />
-
-            <div class="results">
-                <p id="freqResult"></p>
-            </div>
-
-        </div>
-
-        <div class="col-xs-12 col-lg-6">
-
-            <pre class="brush: js">
-            
-                (function () {
-   
-                 //============  Word Frequency Reader =====================================//
-                    window.wordFrequencyReadText = function () {
-                        var reader = new FileReader();
-                        var output = "";
-                        var filePath = document.getElementById('freqFileInput');
-                        if (filePath.files && filePath.files[0]) {
-                            reader.onload = function (e) {
-                                output = e.target.result;
-                                var wordFrequency = wordFrequencyChecker(output);
-                                displayWordFrequency(wordFrequency)
-                            }; //end onload()
-                            reader.readAsText(filePath.files[0]);
-                        } //end if html5 filelist support
-                    }
-                    //============== Word frequency Checker & Display =======================//
-                    function wordFrequencyChecker(txt) {
-                        var textArray = txt.split(" ");
-                        var wordFrequency = "";
-                        var selectedWord = "";
-                        var printedWords = {};
-                        // First Count The Words in the Array
-                        for (i = 0; i < textArray.length; i++) {
-                            selectedWord = textArray[i].replace(/[^\w]/gi, '').toLowerCase();
-                            if (printedWords[selectedWord] != null)
-                                printedWords[selectedWord]++;
-                            else
-                                printedWords[selectedWord] = 1;
-                        }
-        
-                        // Create Dictionary - Create Array of Objs  
-                        var arr = [];
-                        for (key in printedWords) {
-                            arr.push({ word: key, count: printedWords[key] });
-                        }
-                        //Sort Dictionary in Descending Order
-                        arr.sort(function (a, b) { return b.count - a.count });
-        
-                        wordFrequency = arr.reduce(function (a, b) {
-                            return a += b.word + " appears " + b.count + " times." + "<br />"
-                        }, " ");
-                        return wordFrequency;
-                    }
-                    function displayWordFrequency(word) {
-                        var freqResult = document.getElementById('freqResult');
-                        freqResult.innerHTML = word;
-                    }
-                })();
-                
-            </pre><!-- End My Code Display -->
-
-        </div><!-- End Syntax Highlighter -->
-
-    </div><!-- End Row -->
-
-</div><!-- End Container -->

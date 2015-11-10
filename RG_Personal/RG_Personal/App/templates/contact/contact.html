@@ -22,25 +22,26 @@
             </div><!-- /left side -->
             
             <div id="contactForm" class="col-sm-6 col-md-offset-1 animated fadeInLeft">
+                <h3 ng-show="contact.message != null">{{contact.message}}</h3>
                 <div class="form-group">
                     <label class="control-label" for="contact-name">Name</label>
                     <br /><br />
-                    <input id="contact-name" ng-model="contact.Name" class="form-control" />
+                    <input id="contact-name" ng-model="contact.model.Name" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="contact-email">Email</label>
                     <br /><br />
-                    <input id="contact-email" ng-model="contact.Email" class="form-control" />
+                    <input id="contact-email" ng-model="contact.model.Email" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="contact-subject">Subject</label>
                     <br /><br />
-                    <input id="contact-subject" ng-model="contact.Subject" class="form-control" />
+                    <input id="contact-subject" ng-model="contact.model.Subject" class="form-control" />
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="contact-message">Message</label>
                     <br /><br />
-                    <textarea id="contact-message" ng-model="contact.Message" class="form-control"></textarea>
+                    <textarea id="contact-message" ng-model="contact.model.Message" class="form-control"></textarea>
                 </div>
                 <button class="btn btn-default" ng-click="contact.submit(contact.model)">Send It</button>
             </div><!-- /right side -->
