@@ -91,7 +91,7 @@
 }
 
 #projects .form-group label{
-	position: absolute;
+	/*position: absolute;*/
 	top:10px;
 	font-size:18px;
 	line-height:24px;
@@ -205,13 +205,23 @@
 ._l{
     font-size:22px;
 }
+
+.m-t-20{
+    margin-top:20px;
+}
 .m-t-40{
     margin-top:40px;
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
 }
+
+.m-t-80{
+    margin-top:80px;
+}
 .project-results{
     border: 1px solid #ddd;
+    padding: 0 10px 5px;
+
 }
 .btn-file {
     position: relative;
@@ -232,3 +242,20 @@
     cursor: inherit;
     display: block;
 }
+input[type=file]{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: 0px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+
+    

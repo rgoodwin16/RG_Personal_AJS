@@ -5,6 +5,12 @@ angular.module('rg_personal').controller('projects-searchCtrl',function(){
     this.word = '';
     this.result = '';
     this.txtContent = '';
+    this.name = null;
+
+     this.uploadFile = function () {
+        self.name = event.target.files[0].name;
+    }
+
 
     this.getTxt = function ($fileContent) {
         self.content = $fileContent;

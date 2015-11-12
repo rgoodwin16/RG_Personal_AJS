@@ -33,7 +33,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     //CONTACT STATE
     .state('contact', {
         url: "/contact",
-        templateUrl:"app/templates/contact/contact.html"
+        templateUrl:"app/templates/contact/contact.html",
+        controller: "contactCtrl as contact"
     })
 ////=================================================================================//
 

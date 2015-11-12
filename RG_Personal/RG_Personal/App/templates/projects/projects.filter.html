@@ -1,17 +1,38 @@
 ﻿<div class="container" id="projects">
     <h3 class="section-title animated fadeInDown">Word Filter</h3>
     <div class="row" ng-controller="projects-filterCtrl as filter">
-        <div class="col-xs-4 animated fadeInLeft">
+        <div class="col-xs-12 col-sm-6 col-md-5 animated fadeInLeft">
             <p>This program is designed to search through a text file, find every word that is longer than a given interger, and then display those words.</p>
-            <input type="file" on-read-file="filter.getTxt($fileContent)" />
-            <input type="text" class="form-control" ng-model="filter.num" />
-            <button type="button" class="btn btn-default" ng-click="filter.calculate()">Calculate</button>
+            <div class="form-group">
+                <label class="control-label" for="wordLength">Word Length</label>
+                <input type="text" class="form-control" ng-model="filter.num" id="wordLength" /> 
+            </div>
+            <div class="row">
+                <div class="btn btn-default col-xs-12">
+                    <span ng-show="filter.name == null">Choose File</span>
+                    <span ng-show="filter.name != null">{{filter.name}}</span>
+                    <input type="file" on-read-file="filter.getTxt($fileContent)" custom-on-change="filter.uploadFile" />
+                </div>
+                <div class="col-xs-12 m-t-20 btn btn-default" ng-click="filter.calculate()">
+                    <span>Calculate</span>
+                </div>
+            </div><!-- /row -->
         </div><!-- /left side -->
-        <div class="col-xs-8 animated fadeInRight project-results">
-            <h3>Results:</h3>
-            <h4 ng-bind-html="filter.result | renderHtmlCorrectly"></h4>
+
+        <div class="col-xs-12 m-t-20 hidden-md hidden-sm hidden-lg"></div>
+
+        <div class="col-xs-12 col-sm-6  col-md-7 animated fadeInRight">
+            <div class="project-results">
+                <h3>Results:</h3>
+                <h4 ng-bind-html="filter.result | renderHtmlCorrectly"></h4>
+            </div>
         </div><!-- /right side -->
     </div><!-- /row -->
+
+    <div class="m-t-40"></div>
+
+    <hr />
+
     <div hljs class="animated fadeInUp">
         'use strict';
         angular.module('rg_personal').controller('projects-filterCtrl',function() {

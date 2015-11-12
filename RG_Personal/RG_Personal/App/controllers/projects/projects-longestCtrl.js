@@ -3,11 +3,14 @@ angular.module('rg_personal').controller('projects-longestCtrl', function () {
     var self = this;
     this.content = '';
     this.result = '';
+    this.name = null;
     
+    this.uploadFile = function () {
+        self.name = event.target.files[0].name;
+    }
 
     this.getTxt = function ($fileContent) {
         self.content = $fileContent;
-        console.log(self.content)
     }
 
     this.calculate = function () {

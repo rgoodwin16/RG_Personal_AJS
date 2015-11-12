@@ -3,6 +3,11 @@ angular.module('rg_personal').controller('projects-frequencyCtrl',function() {
     var self = this;
     var content = '';
     var result = '';
+    this.name = null;
+
+    this.uploadFile = function () {
+        self.name = event.target.files[0].name;
+    }
 
     this.getTxt = function ($fileContent) {
         self.content = $fileContent;

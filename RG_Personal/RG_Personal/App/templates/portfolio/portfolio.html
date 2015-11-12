@@ -12,24 +12,27 @@
                 <button class="btn btn-default" ng-click="portfolio.itemList ='budgetplanner'">Budget Planner</button>
             </div>
         </div>
+
+        <div id="projects-container" class="row">
+            <a ng-repeat="item in portfolio.code track by $index" class="project-item col-sm-6 col-md-4 col-lg-3 animated fadeInUp _c" ng-show="portfolio.itemList == 'all' || portfolio.itemList == '{{item.Type}}'" ng-click="portfolio.codeView($index)">
+                <img class="img-responsive project-image" src="{{item.ImgSrc}}" />
+                <div class="hover-title">
+                    <h2 class="project-title">{{item.Title}}</h2>
+                    <p>{{item.SubTitle}}</p>
+                </div>
+            </a><!-- /javascript items -->
+
+            <a ng-repeat="item in portfolio.project track by $index" class="project-item  col-sm-12 col-md-12 col-lg-12 animated fadeInUp _c" ng-show="portfolio.itemList == 'all' || portfolio.itemList == '{{item.Type}}'" ng-click="portfolio.projectView($index)">
+                <img class="img-responsive project-image img-center" src="{{item.ImgSrc}}" />
+                <div class="hover-title">
+                    <h2 class="project-title">{{item.Title}}</h2>
+                    <p>{{item.SubTitle}}</p>
+                </div>
+            </a><!-- /web applications -->
+
+        </div><!-- /container -->
+
     </div><!-- /container -->
 
-    <div class="container ">
-        <a ng-repeat="item in portfolio.code track by $index" class="project-item col-sm-6 col-md-4 col-lg-3 animated fadeInUp _c" ng-show="portfolio.itemList == 'all' || portfolio.itemList == '{{item.Type}}'" ng-click="portfolio.codeView($index)">
-            <img class="img-responsive project-image" src="{{item.ImgSrc}}" />
-            <div class="hover-title">
-                <h2 class="project-title">{{item.Title}}</h2>
-                <p>{{item.SubTitle}}</p>
-            </div>
-        </a><!-- /javascript items -->
-        
-        <a ng-repeat="item in portfolio.project track by $index" class="project-item col-sm-12 col-md-12 col-lg-12 animated fadeInUp _c" ng-show="portfolio.itemList == 'all' || portfolio.itemList == '{{item.Type}}'" ng-click="portfolio.projectView($index)">
-            <img class="img-responsive project-image img-center" src="{{item.ImgSrc}}" />
-            <div class="hover-title">
-                <h2 class="project-title">{{item.Title}}</h2>
-                <p>{{item.SubTitle}}</p>
-            </div>
-        </a><!-- /web applications -->
 
-    </div><!-- /container -->
 </section>

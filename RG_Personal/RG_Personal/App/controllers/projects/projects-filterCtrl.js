@@ -4,6 +4,11 @@ angular.module('rg_personal').controller('projects-filterCtrl',function() {
     this.content = '';
     this.num = '';
     this.result = '';
+    this.name = null;
+
+    this.uploadFile = function () {
+        self.name = event.target.files[0].name;
+    }
 
     this.getTxt = function ($fileContent) {
         self.content = $fileContent;
