@@ -40,7 +40,35 @@
         <h1 class="section-title">My Skills</h1>
         <p class="subtitle">Here is a list of skills that I currently have for both back end and front end development.</p>
 
-        <div class="">
+        <div class="text-center animated fadeInUp">
+            <div class="btn-group" >
+                <button type="button" class="btn btn-default" ng-click="about.skills = 'front'">Front End</button>
+                <button type="button" class="btn btn-default" ng-click="about.skills = 'back'">Back End</button>
+            </div>
+        </div>
+        
+        <div class="tab-content">
+            <div class="row tab-pane" ng-show="about.skills == 'front'">
+                <div class="col-sm-4 service-item animated fadeInLeft">
+                    <div class="service-icon "><i class="fa fa-html5"></i></div>
+                    <h3>HTML5</h3>
+                </div>
+
+                <div class="col-sm-4 service-item animated fadeInLeft">
+                    <div class="service-icon "><i class="fa fa-css3"></i></div>
+                    <h3>CSS3</h3>
+                </div>
+
+                <div class="col-sm-4 service-item animated fadeInLeft">
+                    <div class="service-icon "><i class="fa fa-code"></i></div>
+                    <h3>Javascript | jQuery | Bootstrap</h3>
+                </div>
+            </div><!-- /row -->
+        </div><!--/ tab-content -->
+
+        
+
+        <!--<div class="">
             <tabset justified="true">
                 <tab heading="Front End" class="toggle-tabs tab-content">
                     <div class="row tab-pane active" id="front-end">
@@ -79,7 +107,7 @@
                     </div>
                 </tab>
             </tabset>
-        </div>
+        </div>-->
     </div><!-- /container -->
     
 </section><!-- /skills -->
