@@ -1,10 +1,16 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
-
-</body>
-</html>
+﻿<div class="blog-post" ng-repeat="blog in list.posts">
+    <div class="post-title">
+        <h3><a ui-sref="blog.details">{{blog.Title}}</a></h3>
+    </div>
+    <div class="post-meta">
+        <span><i class="fa fa-calendar-o"></i> {{blog.Created}}</span>
+        <span><i class="fa fa-user"></i> {{blog.Author}}</span>
+        <span><i class="fa fa-folder-open-o"></i> in <a ui-sref="blog.search">{{blog.Category}}</a></span>
+        <span><i class="fa fa-comments-o"></i> {{blog.Comments.length}}<span ng-show="blog.Comments.Count == '1'">Comment</span><span ng-show="blog.Comments.Count != '1'">Comments</span></span>
+    </div>
+    <hr />
+    <div class="post-body" ng-bind-html="blog.Body | renderHtmlCorrectly">
+    </div>
+    <br />
+    <button type="button" class="btn btn-default" ui-sref="blog.details">Read More</button>
+</div>

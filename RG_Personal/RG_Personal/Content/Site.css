@@ -49,46 +49,7 @@
 	margin-bottom: 30px;
 }
 
-#projects .lead{
-	font-size: 21px;
-	font-weight: 400;
-}
 
-#projects .mail-styled{
-	display: inline-block;
-	margin-bottom: 50px;
-	padding: 0;
-	font-size: 38px;
-	font-weight: 400;
-	color:#555;
-	
-}
-
-#projects .mail-styled:hover,
-#projects .mail-styled:focus,
-#projects .mail-styled:active{
-	border-bottom-color: transparent;
-	text-decoration: none;
-
-}
-
-#projects .social-links{
-	margin:30px 0;
-	font-size: 28px;
-}
-
-#projects .social-links .fa{
-	-webkit-transition:color .15s ease-out;
-	transition:color .15s ease-out;
-}
-
-#projects .social-links a:hover .fa{
-	color:#00CCCB !important;
-}
-
-#projectsForm .form-group{
-	position: relative;
-}
 
 #projects .form-group label{
 	/*position: absolute;*/
@@ -257,5 +218,224 @@ input[type=file]{
     filter: alpha(opacity=0);
 }
 
-
+.post-meta {
+    padding: 0px 0 0px 0px;
+    margin-top: 10px;
     
+}
+
+.post-meta span {
+    padding: 0 10px;
+    border-right: 0px solid #c1c1c1;
+    
+    color: #c1c1c1;
+}
+.post-meta span:first-child {
+    padding-left: 0;
+}
+
+.post-title {
+    margin-top: 25px;
+}
+.post-body {
+    padding: 13px 0 0px 0px;
+    border-bottom: 0px solid #e7e7e7;
+}
+
+a {
+    color: #00CCCB;
+    -webkit-transition: color .15s ease-out;
+    transition: color .15s ease-out;
+}
+
+.widget, .widget h1, .widget h2, .widget h3, .widget h4, .widget h5, .widget h6 {
+    color: #606060;
+}
+
+.widget {
+    margin: 0px 0 0 0;
+    line-height: 15px;
+    font-weight: bold;
+}
+
+.widget_search {
+    padding-top: 30px;
+}
+
+.widget {
+    padding-bottom: 5px;
+    padding-top: 15px;
+}
+
+.widget_search .screen-reader-text {
+    display: none;
+}
+
+.widget_search input[type="search"] {
+    width: 100%;
+    border-radius: 5px;
+    margin-top: 20px;
+    background: #ffffff url(../Theme_Template/img/search.png) no-repeat no-repeat 96% 50%;
+    border: 1px solid #d8d8d8;
+    padding: 9px;
+    outline: none;
+    color: #888;
+    margin: 0;
+    max-width: 100%;
+    display: block;
+    margin-bottom: 20px;
+}
+.widget_search input[type="submit"] {
+    display: none;
+}
+
+.widget_categories {
+    margin-bottom: 0px;
+    padding-bottom: 0;
+}
+
+h5.widget-title, h6.widget-title {
+    border-bottom: 1px solid #c1c1c1;
+}
+
+.widget h6 {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    font-size: 90%;
+    text-transform: uppercase;
+
+    font-weight: bold;
+
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.widget_categories li {
+ 
+    padding-top: 8px;
+}
+
+.widget li {
+    font-weight: normal;
+    list-style: none;
+    margin: 0;
+   
+}
+
+.widget ul {
+    margin-top: 0px;
+    list-style: none outside;
+}
+
+.btn-rg.btn-small {
+    position: relative;
+    padding: 7px 30px;
+    font-size: 18px;
+    border: 2px solid;
+    border-radius: 30px;
+    -webkit-transition: padding .2s ease-out;
+    transition: padding .2s ease-out;
+}   
+#admin p{
+	font-size: 18px;
+	margin-bottom: 30px;
+}
+
+
+
+#admin .form-group label{
+	/*position: absolute;*/
+	top:10px;
+	font-size:18px;
+	line-height:24px;
+	font-weight:400;
+	color:#555;
+	z-index: -1;
+	-webkit-transition: all .25s ease-out;
+	transition: all .25s ease-out;
+}
+
+#adminForm .form-control:focus + label{
+	top:-20px;
+	color:#fff;
+}
+
+#adminForm .form-control.input-filled + label{
+	top:-20px;
+}
+
+#admin .form-control{
+	padding:10px 0;
+	margin-bottom: 40px;
+	font-size: 18px;
+	height:auto;
+	background: none;
+	border:none;
+	border-radius: 0;
+	border-bottom: 2px solid;
+	box-shadow: none !important;
+	-webkit-transition: border .25s ease-out;
+	transition: border .25s ease-out;
+}
+
+#admin .form-control:focus{
+	border-bottom: 2px solid #00CCCB;
+}
+
+#admin textarea{
+	max-width: 100%;
+	min-width: 100%;
+}
+
+#admin .form-control::-webkit-input-placeholder { /* WebKit browsers */
+    color:    #fff;
+    opacity:.5;
+}
+#admin .form-control:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color:#fff;
+    opacity:.5;
+}
+#admin .form-control::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color:#fff;
+    opacity:.5;
+}
+#admin .form-control:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color:    #fff;
+    opacity:.5;
+}
+
+#admin .form-control:focus::-webkit-input-placeholder {
+    opacity:1;
+}
+
+#admin .form-control:focus:-moz-placeholder {
+    opacity:1;
+}
+
+#admin .form-control:focus::-moz-placeholder {
+    opacity:1;
+}
+
+#admin .form-control:focus:-ms-placeholder {
+    opacity:1;
+}
+
+#admin .btn,
+#admin .btn:focus{
+	font-size: 14px;
+	background: none !important;
+	-webkit-transition: all .15s ease-out;
+	transition: all .15s ease-out;
+}
+
+#admin .btn:hover,
+#admin .btn:active{
+	color:#00CCCB;
+}
+
+#admin .form-group .error-message{
+	margin-left:8px;
+	color:#00CCCB;
+}

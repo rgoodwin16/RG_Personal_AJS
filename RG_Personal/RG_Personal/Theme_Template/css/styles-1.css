@@ -510,9 +510,7 @@ hr{
 	transform: translateY(0);
 	-webkit-transition:all .3s ease-out;
 	transition:all .3s ease-out;
-    border-left: 1px solid #ddd;
-    border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd;
+
 }
 
 .tab-content.fadeOut{

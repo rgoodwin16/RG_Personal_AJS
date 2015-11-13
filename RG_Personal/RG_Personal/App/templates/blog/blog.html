@@ -1,10 +1,31 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
-
-</body>
-</html>
+﻿<section id="blog" class="big-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 animated fadeInLeft">
+                <div ui-view></div>
+            </div><!-- /left side -->
+            <div class="col-md-4 animated fadeInRight">
+                <div class="widget widget_search">
+                    <div>
+                        <input type="search" />
+                        <input type="submit" />
+                    </div>
+                </div>
+                <div class="widget widget_categories">
+                    <h6 class="widget-title">Categories</h6>
+                    <ul>
+                        <li ng-repeat="cat in blog.categories" ><a class="btn btn-rg btn-small btn-main-color" ui-sref="blog.search">{{cat}}</a></li>
+                    </ul>
+                </div>
+                <div class="widget widget_categories">
+                    <h6 class="widget-title">User</h6>
+                    <ul>
+                        <li><a class="btn btn-rg btn-small btn-main-color" ui-sref="login.signin">Login</a></li>
+                        <li><a class="btn btn-rg btn-small btn-main-color" ui-sref="login.register">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div><!-- /row -->
+        
+    </div><!-- /container -->
+</section>

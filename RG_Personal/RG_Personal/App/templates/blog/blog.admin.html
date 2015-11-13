@@ -1,10 +1,54 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
-
-</body>
-</html>
+﻿<div id="admin">
+    <span class="text-right">
+        <button type="button" class="btn btn-default" ng-click="admin.mainpanel = 'create'"><i class="fa fa-plus"></i> New Post</button>
+    </span>
+    
+    <div class="m-t-20"></div>
+    <table class="table table-responsive animated fadeInLeft" ng-show="admin.mainpanel =='list'">
+        <thead>
+            <tr>
+                <th>Post Title</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="post in admin.posts">
+                <td>{{post.Title}}</td>
+                <td>{{post.Created}}</td>
+                <td>{{post.Updated}}</td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <button type="button" class="btn btn-default" ui-sref="blog.details"><i class="fa fa-eye"></i></button>
+                        <button type="button" class="btn btn-default" ng-click="admin.beginEdit()"><i class="fa fa-edit"></i></button>
+                        <button type="button" class="btn btn-default" ng-click="admin.beginDelete()"><i class="fa fa-trash"></i></button>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <div ng-show="admin.mainpanel == 'create'">
+        <div class="form-group">
+            <label class="control-label" for="title">Post Title</label>
+            <input type="text" id="title" ng-model="admin.model.Title" />
+        </div>
+    </div>
+    <div ng-show="admin.mainpanel == 'edit'">
+        <div class="form-group">
+            <label class="control-label" for="title">Post Title</label>
+            <input type="text" id="title" ng-model="admin.model.Title" class="form-control"/>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="body">Post Body</label>
+            <textarea id="body" ng-model="admin.model.Body" class="form-control"></textarea>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" ng-click="admin.mainpanel = 'list'">Cancel</button>
+            <button type="button" class="btn btn-default" ng-click="admin.Edit()">Save</button>
+        </div>
+    </div>
+    <div ng-show="admin.mainpanel == 'delete'">
+        Delete
+    </div>
+</div><!-- /admin -->

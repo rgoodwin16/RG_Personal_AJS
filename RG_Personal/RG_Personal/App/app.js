@@ -36,6 +36,34 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         templateUrl:"app/templates/contact/contact.html",
         controller: "contactCtrl as contact"
     })
+
+////=================================================================================//
+
+    //BLOG STATES
+    .state('blog',{
+        url:"/blog",
+        templateUrl: "app/templates/blog/blog.html",
+        abstract: true,
+        controller: "blogCtrl as blog"
+    })
+
+    .state('blog.list', {
+        url: "",
+        templateUrl: "app/templates/blog/blog.list.html",
+        controller:"blog-listCtrl as list"
+    })
+
+    .state('blog.details', {
+        url: "/details/{slug}",
+        templateUrl: "app/templates/blog/blog.details.html",
+        controller:"blog-detailsCtrl as details"
+    })
+
+    .state('blog.admin',{
+        url: "/admin",
+        templateUrl: "app/templates/blog/blog.admin.html",
+        controller: "blog-adminCtrl as admin"
+    })
 ////=================================================================================//
 
     //PROJECT STATES
