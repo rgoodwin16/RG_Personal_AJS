@@ -19,7 +19,7 @@ using RG_Personal.Results;
 
 namespace RG_Personal.Controllers
 {
-    [Authorize]
+    [Models.Authorize]
     [RoutePrefix("api/Account")]
     public class AccountController : ApiController
     {
@@ -264,7 +264,7 @@ namespace RG_Personal.Controllers
                 ClaimsIdentity cookieIdentity = await user.GenerateUserIdentityAsync(UserManager,
                     CookieAuthenticationDefaults.AuthenticationType);
 
-                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user.UserName);
+                AuthenticationProperties properties = ApplicationOAuthProvider.CreateProperties(user);
                 Authentication.SignIn(properties, oAuthIdentity, cookieIdentity);
             }
             else

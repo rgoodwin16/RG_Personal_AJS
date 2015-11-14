@@ -16,8 +16,8 @@ namespace RG_Personal.Models
 
         public int Id { get; set; }
         public string Title { get; set; }
-        public System.DateTime Created { get; set; }
-        public System.DateTime? Updated { get; set; }
+        public System.DateTimeOffset Created { get; set; }
+        public System.DateTimeOffset? Updated { get; set; }
         public string Slug { get; set; }
 
         [AllowHtml]
@@ -25,9 +25,10 @@ namespace RG_Personal.Models
         [DataType(DataType.MultilineText)]
         public string Body { get; set; }
 
-        public string Category { get; set; }
+        public int CategoryId { get; set; }
         public string MediaUrl { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual Category Category { get; set; }
     }
 }
