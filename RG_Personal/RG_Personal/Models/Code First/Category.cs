@@ -18,5 +18,6 @@ namespace RG_Personal.Models
 
         [JsonIgnore]
         public virtual ICollection<Blogpost> Blogposts { get; set; }
+        
     }
 }

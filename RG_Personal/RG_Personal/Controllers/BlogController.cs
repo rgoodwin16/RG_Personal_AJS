@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Security;
+using System.Data.Entity;
 
 namespace RG_Personal.Controllers
 {
@@ -39,7 +40,7 @@ namespace RG_Personal.Controllers
         {
             var cats = db.Categories;
 
-            if(!cats.Any(c=> c.Name == model.Category.Name))
+            if(!cats.Any(c=> c.Name == model.Category.Name) || cats == null)
             {
                 var newCat = new Category()
                 {
@@ -81,7 +82,70 @@ namespace RG_Personal.Controllers
                 return Ok();
             }
 
+
+
             
+        }
+
+        //POST: api/Blog/Edit/5 - EDIT BLOGPOST
+        [Models.Authorize(Roles = "Admin")]
+        [HttpPost,Route("Edit")]
+        public async Task<IHttpActionResult> Edit (Blogpost model)
+        {
+            var cats = db.Categories;
+
+            if(!cats.Any(c=> c.Name == model.Category.Name))
+            {
+                var newCat = new Category()
+                {
+                    Name = model.Category.Name
+                };
+                db.Categories.Add(newCat);
+                await db.SaveChangesAsync();
+                model.Category.Id = newCat.Id;
+            }
+            else
+            {
+                model.Category.Id = model.Category.Id;
+                model.Category = null;
+            }
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+
+            model.Updated = DateTimeOffset.UtcNow;
+            db.Entry(model).State = EntityState.Modified;
+            await db.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        //POST: api/Blog/Delete/5 - DELETE BLOGSPOT
+        [Models.Authorize(Roles ="Admin")]
+        [HttpPost,Route("Delete")]
+        public async Task<IHttpActionResult> Delete(int id)
+        {
+            Blogpost post = await db.Posts.FindAsync(id);
+            if(post == null)
+            {
+                return BadRequest("No post found.");
+            }
+
+            db.Posts.Remove(post);
+            await db.SaveChangesAsync();
+
+            return Ok();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                db.Dispose();
+            }
+            base.Dispose(disposing);
         }
     }
 }
