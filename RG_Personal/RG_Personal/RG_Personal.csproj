@@ -277,6 +277,7 @@
     <Content Include="App\controllers\blog\blogCtrl.js" />
     <Content Include="App\controllers\contact\contactCtrl.js" />
     <Content Include="App\controllers\home\homeCtrl.js" />
+    <Content Include="App\controllers\login\loginCtrl.js" />
     <Content Include="App\controllers\modal\modalCtrl.js" />
     <Content Include="App\controllers\portfolio\portfolioCtrl.js" />
     <Content Include="App\controllers\projects\projects-armstrongCtrl.js" />
@@ -295,6 +296,7 @@
     <Content Include="App\filters\renderHtmlCorrectly.js" />
     <Content Include="App\services\auth\authInterceptorSvc.js" />
     <Content Include="App\services\auth\authSvc.js" />
+    <Content Include="App\services\role\roleSvc.js" />
     <Content Include="App\templates\about\about.html" />
     <Content Include="App\templates\blog\blog.admin.html" />
     <Content Include="App\templates\blog\blog.details.html" />

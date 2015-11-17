@@ -7,8 +7,8 @@ angular.module('rg_personal')
 
     var _authentication = {
         isAuth: false,
-        userName: "",
-        householdId: null
+        userName: ""
+        
     };
 
     var _saveRegistration = function (registration) {
@@ -36,13 +36,13 @@ angular.module('rg_personal')
         $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
             localStorageService.set('authorizationData', {
-                token: response.access_token, username: username, refreshToken: response.refresh_token,
-                householdId: response.householdId
+                token: response.access_token, username: username, refreshToken: response.refresh_token
+                
             });
 
             _authentication.isAuth = true;
             _authentication.username = username;
-            _authentication.householdId = response.householdId;
+            
 
             deferred.resolve(response);
 
@@ -61,7 +61,7 @@ angular.module('rg_personal')
 
         _authentication.isAuth = false;
         _authentication.username = "";
-        _authentication.householdId = null
+        
 
     };
 
@@ -71,7 +71,7 @@ angular.module('rg_personal')
         if (authData) {
             _authentication.isAuth = true;
             _authentication.username = authData.username;
-            _authentication.householdId = authData.householdId
+           
         }
 
     };
@@ -90,8 +90,8 @@ angular.module('rg_personal')
             $http.post(serviceBase + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
                 localStorageService.set('authorizationData', {
-                    token: response.access_token, username: response.username, refreshToken: response.refresh_token,
-                    householdId: response.householdId
+                    token: response.access_token, username: response.username, refreshToken: response.refresh_token
+                    
                 });
 
                 deferred.resolve(response);

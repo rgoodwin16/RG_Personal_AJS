@@ -104,6 +104,7 @@ namespace RG_Personal.Providers
             IDictionary<string, string> data = new Dictionary<string, string>
             {
                 { "userName", user.UserName }
+                
             };
             return new AuthenticationProperties(data);
         }

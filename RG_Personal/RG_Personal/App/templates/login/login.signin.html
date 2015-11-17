@@ -1,10 +1,31 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
+﻿<div class="login-content">
+    <div class="margin-bottom-0">
+        <p class="alert alert-info text-center text-white" ng-if="user.isNew">Please login using your new account.</p>
+        <p class="alert alert-info text-center text-white" ng-if="user.needAuth">Only admins can access this page.  Please log in with an admin account.</p>
 
-</body>
-</html>
+        <div class="form-group m-b-20">
+            <input type="text" class="form-control input-lg" placeholder="Email Address" ng-model="user.username" />
+        </div>
+        <div class="form-group m-b-20">
+            <input type="password" class="form-control input-lg" placeholder="Password" ng-model="user.password" />
+        </div>
+        <!--<div class="checkbox m-b-20">
+            <a ui-sref="login.forgot" class="move_you_3">Forgot your password?</a>
+        </div>-->
+        <div class="m-t-20">
+        </div>
+        <div class="login-buttons">
+            <button type="button" class="btn btn-success btn-block btn-lg" ng-click="user.login()">Login</button>
+        </div>
+        <div class="m-t-20">
+        </div>
+        <div class="login-buttons">
+            <a class="btn btn-white btn-block btn-lg " ui-sref="login.register"><span style="color:black">Create Account</span></a>
+        </div>
+        <div class="m-t-20">
+        </div>
+        <div ng-show="user.errors != null">
+            <h5 class="alert alert-warning text-center text-white">{{user.errors.error_description}}</h5>
+        </div>
+    </div>
+</div>

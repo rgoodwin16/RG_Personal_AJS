@@ -62,7 +62,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('blog.admin',{
         url: "/admin",
         templateUrl: "app/templates/blog/blog.admin.html",
-        controller: "blog-adminCtrl as admin"
+        controller: "blog-adminCtrl as admin",
+        resolve: {
+           role: ['$http','$state',function($http,$state){
+                return $http.post("api/Blog/Check").then(function(response) {
+                    return response.data;
+                },function(error){
+                    $state.go('login.signin', { needAuth: true });
+                })
+            }]
+        }
     })
 ////=================================================================================//
 
@@ -170,7 +179,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     })
 
     .state('login.signin', {
-        params: { 'isNew': false },
+        params: { 'isNew': false, 'needAuth':false },
         url: "",
         templateUrl: "/app/templates/login/login.signin.html",
         controller: "loginCtrl as user"
@@ -199,13 +208,10 @@ app.run(['$rootScope', '$state', '$stateParams', 'authSvc', function ($rootScope
     $rootScope.$state.$stateParams = $stateParams;
     authService.fillAuthData();
 
-    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromParams) {
+
+    $rootScope.$on('$stateChangeStart', function (event, toState, toParams, fromParams,$http) {
         console.log('state change')
 
-        if (toState.data) {
-            if (!authService.authenication.isAuth) {
-                $state.go('login');
-            }
-        }
+    
     });
 }]);

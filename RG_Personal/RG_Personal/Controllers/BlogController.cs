@@ -9,6 +9,7 @@ using System.Web.Http;
 using System.Web.Http.Description;
 using System.Web.Security;
 using System.Data.Entity;
+using Microsoft.AspNet.Identity;
 
 namespace RG_Personal.Controllers
 {
@@ -137,6 +138,27 @@ namespace RG_Personal.Controllers
             await db.SaveChangesAsync();
 
             return Ok();
+        }
+
+        //POST: api/Blog/Check - CHECK ROLE OF USER
+        [AllowAnonymous]
+        [HttpPost,Route("Check")]
+        public IHttpActionResult Check()
+        {
+            var user = db.Users.Find(User.Identity.GetUserId());
+            if(user == null)
+            {
+                return BadRequest("You are not logged in.");
+            }
+            var admin = db.Roles.First(r => r.Name == "Admin").Id;
+            if(user.Roles.Any(r=> r.RoleId == admin))
+            {
+                return Ok();
+            }
+            else
+            {
+                return BadRequest("You must login with an account that has an admin role.");
+            }
         }
 
         protected override void Dispose(bool disposing)
