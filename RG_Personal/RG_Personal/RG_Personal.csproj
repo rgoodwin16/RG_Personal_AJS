@@ -296,6 +296,8 @@
     <Content Include="App\filters\renderHtmlCorrectly.js" />
     <Content Include="App\services\auth\authInterceptorSvc.js" />
     <Content Include="App\services\auth\authSvc.js" />
+    <Content Include="App\services\blog\blogSvc.js" />
+    <Content Include="App\services\comment\commentSvc.js" />
     <Content Include="App\templates\about\about.html" />
     <Content Include="App\templates\blog\blog.admin.html" />
     <Content Include="App\templates\blog\blog.details.html" />

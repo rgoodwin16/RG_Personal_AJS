@@ -70,7 +70,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                 },function(error){
                     $state.go('login.signin', { needAuth: true });
                 })
-            }]
+            }],
+           posts: function (blogSvc) {
+               return blogSvc.list();
+           },
+           categories: ['$http', function ($http) {
+               return $http.post("api/Blog/Categories").then(function (response) {
+                   return response.data;
+               })
+           }]
         }
     })
 ////=================================================================================//

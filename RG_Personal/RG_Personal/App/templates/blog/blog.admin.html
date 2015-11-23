@@ -31,7 +31,15 @@
     <div ng-show="admin.mainpanel == 'create'">
         <div class="form-group">
             <label class="control-label" for="title">Post Title</label>
-            <input type="text" id="title" ng-model="admin.model.Title" />
+            <input type="text" id="title" ng-model="admin.model.Title" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="body">Post Body</label>
+            <textarea id="body" ng-model="admin.model.Body" class="form-control"></textarea>
+        </div>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default" ng-click="admin.mainpanel = 'list'">Cancel</button>
+            <button type="button" class="btn btn-default" ng-click="admin.createPost()">Save</button>
         </div>
     </div>
     <div ng-show="admin.mainpanel == 'edit'">

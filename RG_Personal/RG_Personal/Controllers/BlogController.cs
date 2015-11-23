@@ -22,15 +22,12 @@ namespace RG_Personal.Controllers
         [HttpPost,Route("Index")]
         public IHttpActionResult Index()
         {
-            try
+            var posts = db.Posts.ToList();
+            if(posts == null)
             {
-                var posts = db.Posts.ToList();
-                return Ok(posts);
+                return BadRequest("No posts found.");
             }
-            catch (NullReferenceException)
-            {
-                return BadRequest("No Posts found.");
-            }
+            return Ok(posts);
         }
 
         //POST: api/Blog/Create - CREATE NEW BLOGPOST
@@ -159,6 +156,15 @@ namespace RG_Personal.Controllers
             {
                 return BadRequest("You must login with an account that has an admin role.");
             }
+        }
+
+        //POST: api/Blog/Categories - LIST ALL CATEGORIES FOR THIS BLOG
+        [Models.Authorize(Roles ="Admin")]
+        [HttpPost,Route("Categories")]
+        public IHttpActionResult Categories()
+        {
+            var cats = db.Categories.ToList();
+            return Ok(cats);
         }
 
         protected override void Dispose(bool disposing)
