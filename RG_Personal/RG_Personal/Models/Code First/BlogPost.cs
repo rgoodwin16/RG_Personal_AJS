@@ -19,6 +19,7 @@ namespace RG_Personal.Models
         public System.DateTimeOffset Created { get; set; }
         public System.DateTimeOffset? Updated { get; set; }
         public string Slug { get; set; }
+        public string AuthorName { get; set; }
 
         [AllowHtml]
         [Required]

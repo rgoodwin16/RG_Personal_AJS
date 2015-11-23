@@ -22,7 +22,7 @@ namespace RG_Personal.Controllers
         [HttpPost,Route("Index")]
         public IHttpActionResult Index()
         {
-            var posts = db.Posts.ToList();
+            var posts = db.Posts.ToList().OrderByDescending(p=> p.Created);
             if(posts == null)
             {
                 return BadRequest("No posts found.");
@@ -74,6 +74,7 @@ namespace RG_Personal.Controllers
                 model.Created = DateTimeOffset.UtcNow;
                 model.CategoryId = model.Category.Id;
                 model.Category = null;
+                model.AuthorName = db.Users.Find(User.Identity.GetUserId()).DisplayName;
                 db.Posts.Add(model);
                 await db.SaveChangesAsync();
 

@@ -50,7 +50,12 @@ app.config(function ($stateProvider, $urlRouterProvider) {
     .state('blog.list', {
         url: "",
         templateUrl: "app/templates/blog/blog.list.html",
-        controller:"blog-listCtrl as list"
+        controller:"blog-listCtrl as list",
+        resolve:{
+            posts: function(blogSvc){
+            return blogSvc.list();
+}
+        }
     })
 
     .state('blog.details', {
