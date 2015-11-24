@@ -2,8 +2,8 @@
     angular.module('rg_personal').factory('commentSvc', ['$http', function ($http) {
         var f = {};
 
-        f.list = function () {
-            return $http.post("api/Comments/Index").then(function (response) {
+        f.list = function (slug) {
+            return $http.post("api/Comments/Index?slug=" + slug).then(function (response) {
                 return response.data;
             })
         }

@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using RG_Personal.Models;
+using Newtonsoft.Json;
 
 namespace RG_Personal.Models
 {
@@ -23,6 +24,7 @@ namespace RG_Personal.Models
         public string UpdateReason { get; set; }
 
         public virtual ApplicationUser Author { get; set; }
+        [JsonIgnore]
         public virtual Blogpost Post { get; set; }
 
     }

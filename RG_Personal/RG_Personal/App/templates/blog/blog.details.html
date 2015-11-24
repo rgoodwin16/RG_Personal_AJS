@@ -1,10 +1,36 @@
-﻿<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-	<meta charset="utf-8" />
-</head>
-<body>
+﻿<div class="blog-post animated fadeIn" >
+    <div class="m-t-40"></div>
+    <div class="post-title">
+        <h3>{{details.blogpost.Title}}</h3>
+    </div>
+    <div class="post-meta">
+        <span><i class="fa fa-calendar-o"></i> {{details.blogpost.Created | date:'shortDate'}}</span>
+        <span><i class="fa fa-user"></i> {{details.blogpost.AuthorName}}</span>
+        <span><i class="fa fa-folder-open-o"></i> in <a ui-sref="blog.search">{{details.blogpost.Category.Name}}</a></span>
+        <span><i class="fa fa-comments-o"></i> {{details.blogpost.Comments.length}}<span ng-show="blog.Comments.Count == '1'">Comment</span><span ng-show="blog.Comments.Count != '1'">Comments</span></span>
+    </div>
+    <hr />
+    <div class="post-body" ng-bind-html="details.blogpost.Body | renderHtmlCorrectly">
+    </div>
+    <br />
+    <div class="m-t-40"></div>
+    <hr />
+</div>
+<div>
+    <h4>Please <a ui-sref="login.signin" class="main-color">Login</a> to post a comment.</h4>
+    <h3>Leave a comment</h3>
+    <div class="form-group">
+        <textarea id="body" ng-model="details.model.Body" class="form-control"></textarea>
+    </div>
+    <div class="btn-group">
+        <button type="button" class="btn btn-default" ng-click="details.model = {}">Cancel</button>
+        <button type="button" class="btn btn-default" ng-click="details.createComment()">Submit</button>
+    </div>
+</div><!-- /comment form -->
 
-</body>
-</html>
+<hr />
+<div class="blog-comment" ng-repeat="comment in details.comments">
+    <h4>{{comment.AuthorId}}</h4>
+    <p>{{comment.Created | date:'shortDate'}}</p>
+    <p>{{comment.Body}}</p>
+</div>

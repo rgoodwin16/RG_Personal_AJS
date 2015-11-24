@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace RG_Personal.Models
 
         public int CategoryId { get; set; }
         public string MediaUrl { get; set; }
-
+        [JsonIgnore]
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual Category Category { get; set; }
     }

@@ -30,6 +30,19 @@ namespace RG_Personal.Controllers
             return Ok(posts);
         }
 
+        //POST: api/Blog/Details/Slug - GET THIS BLOGPOST
+        [AllowAnonymous]
+        [HttpPost,Route("Details")]
+        public IHttpActionResult Details(string slug)
+        {
+            var blogpost = db.Posts.FirstOrDefault(p => p.Slug == slug);
+            if(blogpost == null)
+            {
+                return BadRequest("No post found.");
+            }
+            return Ok(blogpost);
+        }
+
         //POST: api/Blog/Create - CREATE NEW BLOGPOST
         [Models.Authorize(Roles = "Admin")]
         [ResponseType(typeof(Blogpost))]
@@ -160,7 +173,7 @@ namespace RG_Personal.Controllers
         }
 
         //POST: api/Blog/Categories - LIST ALL CATEGORIES FOR THIS BLOG
-        [Models.Authorize(Roles ="Admin")]
+        [AllowAnonymous]
         [HttpPost,Route("Categories")]
         public IHttpActionResult Categories()
         {

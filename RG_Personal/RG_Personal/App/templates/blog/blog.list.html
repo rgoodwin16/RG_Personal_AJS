@@ -1,7 +1,7 @@
-﻿<div class="blog-post" ng-repeat="blog in list.posts">
+﻿<div class="blog-post" ng-repeat="blog in blog.posts">
     <div class="m-t-40"></div>
     <div class="post-title">
-        <h3><a ui-sref="blog.details">{{blog.Title}}</a></h3>
+        <h3><a ui-sref="blog.details({slug:blog.Slug})">{{blog.Title}}</a></h3>
     </div>
     <div class="post-meta">
         <span><i class="fa fa-calendar-o"></i> {{blog.Created | date:'shortDate'}}</span>
@@ -13,7 +13,7 @@
     <div class="post-body" ng-bind-html="blog.Body | renderHtmlCorrectly">
     </div>
     <br />
-    <button type="button" class="btn btn-default" ui-sref="blog.details">Read More</button>
+    <button type="button" class="btn btn-default" ui-sref="blog.details({slug:blog.Slug})">Read More</button>
     <div class="m-t-40"></div>
     <hr />
 </div>

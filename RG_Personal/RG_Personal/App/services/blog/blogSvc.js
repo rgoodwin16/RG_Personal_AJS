@@ -14,8 +14,8 @@
             })
         }
 
-        f.details = function (id) {
-            return $http.post("api/Blog/Details?id=" + id).then(function (response) {
+        f.details = function (slug) {
+            return $http.post("api/Blog/Details?slug=" + slug).then(function (response) {
                 return response.data;
             })
         }

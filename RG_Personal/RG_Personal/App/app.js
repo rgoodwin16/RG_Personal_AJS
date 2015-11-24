@@ -44,24 +44,37 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         url:"/blog",
         templateUrl: "app/templates/blog/blog.html",
         abstract: true,
-        controller: "blogCtrl as blog"
+        controller: "blogCtrl as blog",
+        resolve: {
+            posts: function (blogSvc) {
+                return blogSvc.list();
+            },
+            categories: ['$http', function ($http) {
+                return $http.post("api/Blog/Categories").then(function (response) {
+                    return response.data;
+                })
+            }]
+        }
     })
 
     .state('blog.list', {
         url: "",
         templateUrl: "app/templates/blog/blog.list.html",
         controller:"blog-listCtrl as list",
-        resolve:{
-            posts: function(blogSvc){
-            return blogSvc.list();
-}
-        }
     })
 
     .state('blog.details', {
-        url: "/details/{slug}",
+        url: "/:slug",
         templateUrl: "app/templates/blog/blog.details.html",
-        controller:"blog-detailsCtrl as details"
+        controller: "blog-detailsCtrl as details",
+        resolve: {
+            blogpost: ['blogSvc', '$stateParams', function (blogSvc, $stateParams) {
+                return blogSvc.details($stateParams.slug)
+            }],
+            comments: ['commentSvc', '$stateParams', function (commentSvc, $stateParams) {
+                return commentSvc.list($stateParams.slug)
+            }]
+        }
     })
 
     .state('blog.admin',{
@@ -76,14 +89,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
                     $state.go('login.signin', { needAuth: true });
                 })
             }],
-           posts: function (blogSvc) {
-               return blogSvc.list();
-           },
-           categories: ['$http', function ($http) {
-               return $http.post("api/Blog/Categories").then(function (response) {
-                   return response.data;
-               })
-           }]
         }
     })
 ////=================================================================================//

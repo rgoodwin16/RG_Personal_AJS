@@ -20,11 +20,12 @@ namespace RG_Personal.Controllers
         //POST: api/Comments/Index - GET ALL COMMENTS FOR THIS BLOGPOST
         [AllowAnonymous]
         [HttpPost,Route("Index")]
-        public IHttpActionResult Index(int id)
+        public IHttpActionResult Index(string slug)
         {
             try
             {
-                var comments = db.Comments.Where(c => c.PostId == id);
+                var blogpost = db.Posts.FirstOrDefault(p => p.Slug == slug);
+                var comments = db.Comments.Where(c => c.PostId == blogpost.Id).ToList().OrderByDescending(com => com.Created);
                 return Ok(comments);
             }
             catch (NullReferenceException)
