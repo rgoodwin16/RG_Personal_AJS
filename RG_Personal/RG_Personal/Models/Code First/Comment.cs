@@ -14,7 +14,7 @@ namespace RG_Personal.Models
     {
         public int Id { get; set; }
         public int PostId { get; set; }
-        public string AuthorId { get; set; }
+        public string AuthorName { get; set; }
 
         [Required]
         [DataType(DataType.MultilineText)]
@@ -22,8 +22,7 @@ namespace RG_Personal.Models
         public System.DateTimeOffset Created { get; set; }
         public System.DateTimeOffset? Updated { get; set; }
         public string UpdateReason { get; set; }
-
-        public virtual ApplicationUser Author { get; set; }
+        
         [JsonIgnore]
         public virtual Blogpost Post { get; set; }
 
