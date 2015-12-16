@@ -304,6 +304,7 @@
     <Content Include="App\templates\about\about.html" />
     <Content Include="App\templates\blog\blog.admin.html" />
     <Content Include="App\templates\blog\blog.details.html" />
+    <Content Include="App\templates\blog\blog.details.comments.html" />
     <Content Include="App\templates\blog\blog.html" />
     <Content Include="App\templates\contact\contact.html" />
     <Content Include="App\templates\home\home.html" />

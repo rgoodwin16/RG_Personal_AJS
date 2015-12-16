@@ -71,9 +71,6 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             blogpost: ['blogSvc', '$stateParams', function (blogSvc, $stateParams) {
                 return blogSvc.details($stateParams.slug)
             }],
-            comments: ['commentSvc', '$stateParams', function (commentSvc, $stateParams) {
-                return commentSvc.list($stateParams.slug)
-            }]
         }
     })
 

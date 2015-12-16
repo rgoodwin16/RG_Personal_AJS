@@ -30,7 +30,8 @@ namespace RG_Personal.Controllers
             }
             catch (NullReferenceException)
             {
-                return Ok("No comments.");
+                var comments = "no comments.";
+                return Ok(comments);
             }
         }
 
@@ -45,7 +46,7 @@ namespace RG_Personal.Controllers
             }
             var user = db.Users.Find(User.Identity.GetUserId());
 
-            model.AuthorId = user.Id;
+            model.AuthorName = user.UserName;
             model.Created = DateTimeOffset.UtcNow;
 
             db.Comments.Add(model);
