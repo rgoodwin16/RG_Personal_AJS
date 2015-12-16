@@ -97,5 +97,6 @@ namespace RG_Personal.Models
         public DbSet<Blogpost> Posts { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Grant> Grants { get; set; }
     }
 }

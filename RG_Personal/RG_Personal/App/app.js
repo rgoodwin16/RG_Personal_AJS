@@ -188,6 +188,21 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 
 ////=================================================================================//
 
+    .state('image-test',{
+        url: "/image-test",
+        templateUrl: "app/templates/images/image-test.html",
+        controller: "imagesCtrl as image",
+        resolve: {
+            grants: ['$http', '$state', function ($http, $state) {
+                return $http.post("api/Images/List").then(function (response) {
+                    return response.data;
+                })
+            }]
+        }
+    })
+
+////=================================================================================//
+
     //LOGIN STATES
     .state('login', {
         url: "/login",

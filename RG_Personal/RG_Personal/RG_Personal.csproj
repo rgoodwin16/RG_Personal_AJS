@@ -245,6 +245,7 @@
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
+    <Compile Include="Controllers\GrantsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
@@ -257,6 +258,7 @@
     <Compile Include="Models\Code First\BlogPost.cs" />
     <Compile Include="Models\Code First\Category.cs" />
     <Compile Include="Models\Code First\Comment.cs" />
+    <Compile Include="Models\Code First\Grant.cs" />
     <Compile Include="Models\Code First\RefreshToken.cs" />
     <Compile Include="Models\ContactMessage.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -277,6 +279,7 @@
     <Content Include="App\controllers\blog\blogCtrl.js" />
     <Content Include="App\controllers\contact\contactCtrl.js" />
     <Content Include="App\controllers\home\homeCtrl.js" />
+    <Content Include="App\controllers\images\imagesCtrl.js" />
     <Content Include="App\controllers\login\loginCtrl.js" />
     <Content Include="App\controllers\modal\modalCtrl.js" />
     <Content Include="App\controllers\portfolio\portfolioCtrl.js" />
@@ -304,6 +307,7 @@
     <Content Include="App\templates\blog\blog.html" />
     <Content Include="App\templates\contact\contact.html" />
     <Content Include="App\templates\home\home.html" />
+    <Content Include="App\templates\images\image-test.html" />
     <Content Include="App\templates\login\login.html" />
     <Content Include="App\templates\login\login.register.html" />
     <Content Include="App\templates\login\login.signin.html" />
@@ -381,6 +385,7 @@
     <Content Include="Scripts\angular-messages.js" />
     <Content Include="Scripts\angular-messages.min.js" />
     <Content Include="Scripts\angular-mocks.js" />
+    <Content Include="Scripts\angular-pagination\dirPagination.js" />
     <Content Include="Scripts\angular-resource.js" />
     <Content Include="Scripts\angular-resource.min.js" />
     <Content Include="Scripts\angular-route.js" />
@@ -1216,6 +1221,18 @@
     <Content Include="Theme_Template\img\rg_apple_touch.png" />
     <Content Include="Theme_Template\img\rg_favicon.ico" />
     <Content Include="Theme_Template\img\search.png" />
+    <Content Include="Uploads\After\img10.jpg" />
+    <Content Include="Uploads\After\img11.jpg" />
+    <Content Include="Uploads\After\img12.png" />
+    <Content Include="Uploads\After\img7.jpg" />
+    <Content Include="Uploads\After\img8.jpg" />
+    <Content Include="Uploads\After\img9.jpg" />
+    <Content Include="Uploads\Before\img1.jpg" />
+    <Content Include="Uploads\Before\img2.jpg" />
+    <Content Include="Uploads\Before\img3.jpg" />
+    <Content Include="Uploads\Before\img4.jpg" />
+    <Content Include="Uploads\Before\img5.jpg" />
+    <Content Include="Uploads\Before\img6.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
